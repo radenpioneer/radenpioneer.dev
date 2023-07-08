@@ -1,7 +1,7 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from 'astro/config'
 
-import react from "@astrojs/react";
-import markdoc from "@astrojs/markdoc";
+import react from '@astrojs/react'
+import markdoc from '@astrojs/markdoc'
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,10 +9,10 @@ export default defineConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          includePaths: ['node_modules']
-        }
-      }
-    }
+          includePaths: ['node_modules'],
+        },
+      },
+    },
   },
-  integrations: [react(), markdoc()]
-});
+  integrations: [react(), markdoc()],
+})
