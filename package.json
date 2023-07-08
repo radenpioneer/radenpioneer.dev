@@ -1,15 +1,17 @@
 {
   "name": "radenpioneer.dev",
-  "type": "module",
   "version": "0.0.1",
+  "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
+    "astro": "astro",
     "build": "astro build",
+    "check": "pnpm dlx concurrently \"astro check\" \"tsc --noEmit\"",
+    "dev": "astro dev",
     "preview": "astro preview",
-    "astro": "astro"
+    "start": "astro dev"
   },
   "dependencies": {
-    "astro": "^2.8.0"
+    "astro": "^2.8.0",
+    "typescript": "^5.1.6"
   }
 }
