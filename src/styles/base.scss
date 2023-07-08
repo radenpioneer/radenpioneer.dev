@@ -1,0 +1,6 @@
+@use '@picocss/pico/scss/pico.slim.scss';
+@use './fonts';
+
+body {
+  @extend %body;
+}

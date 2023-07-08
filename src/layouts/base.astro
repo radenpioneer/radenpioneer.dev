@@ -1,0 +1,18 @@
+---
+import Head from '~/components/head'
+
+export interface Props {
+  lang?: string
+}
+
+const { lang } = Astro.props
+---
+
+<html lang={lang || 'id'}>
+  <Head>
+    <slot name="head" />
+  </Head>
+  <body>
+    <slot />
+  </body>
+</html>

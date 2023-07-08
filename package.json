@@ -4,14 +4,21 @@
   "type": "module",
   "scripts": {
     "astro": "astro",
-    "build": "astro build",
-    "check": "pnpm dlx concurrently \"astro check\" \"tsc --noEmit\"",
+    "build": "pnpm check && astro build",
+    "check": "pnpm dlx concurrently \"npm:check:*\"",
+    "check:lint": "pnpm dlx concurrently \"astro check\" \"tsc --noEmit\"",
+    "check:style": "pnpm exec prettier --plugin-search-dir=. --check .",
+    "format": "pnpm exec prettier --plugin-search-dir=. --write .",
     "dev": "astro dev",
     "preview": "astro preview",
     "start": "astro dev"
   },
   "dependencies": {
+    "@fontsource-variable/plus-jakarta-sans": "^5.0.5",
+    "@fontsource/plus-jakarta-sans": "^5.0.4",
+    "@picocss/pico": "^1.5.10",
     "astro": "^2.8.0",
+    "sass": "^1.63.6",
     "typescript": "^5.1.6"
   }
 }

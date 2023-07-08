@@ -1,0 +1,11 @@
+%heading {
+  --font-family: 'Nohemi', system-ui, sans-serif;
+}
+
+%body {
+  --font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+.__heading {
+    @extend %heading;
+}
