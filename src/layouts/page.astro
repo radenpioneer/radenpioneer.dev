@@ -1,0 +1,49 @@
+---
+import Layout from './layout.astro'
+
+export interface Props {
+  title: string
+  subtitle?: string | undefined
+}
+
+const { title, subtitle } = Astro.props
+---
+
+<Layout>
+  <article>
+    <h1 class="_title">{title}</h1>
+    {subtitle && <p class="_subtitle">{subtitle}</p>}
+    <slot />
+  </article>
+</Layout>
+
+<style lang="scss">
+  @use '../styles/fonts';
+
+  article {
+    max-width: 65ch;
+  }
+
+  ._title {
+    @extend %heading;
+    --font-size: 2.5rem;
+    --typography-spacing-vertical: 1rem;
+    line-height: 110%;
+  }
+
+  ._subtitle {
+    --font-size: 1.5rem;
+  }
+
+  @media (min-width: 992px) {
+    ._title {
+      --font-size: 4rem;
+      --typography-spacing-vertical: 1.5rem;
+      line-height: 125%;
+    }
+
+    ._subtitle {
+      --font-size: 1.75rem;
+    }
+  }
+</style>

@@ -5,6 +5,7 @@ import markdoc from '@astrojs/markdoc'
 
 // https://astro.build/config
 export default defineConfig({
+  integrations: [react(), markdoc()],
   vite: {
     css: {
       preprocessorOptions: {
@@ -14,5 +15,7 @@ export default defineConfig({
       },
     },
   },
-  integrations: [react(), markdoc()],
+  experimental: {
+    assets: true,
+  },
 })
