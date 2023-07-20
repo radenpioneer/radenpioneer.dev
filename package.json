@@ -5,7 +5,7 @@
   "scripts": {
     "astro": "astro",
     "build": "pnpm check && astro build",
-    "check": "pnpm dlx concurrently \"npm:check:*\"",
+    "check": "astro sync && pnpm dlx concurrently \"npm:check:*\"",
     "check:lint": "pnpm dlx concurrently \"astro check\" \"tsc --noEmit\"",
     "check:style": "pnpm exec prettier --plugin-search-dir=. --check .",
     "format": "pnpm exec prettier --plugin-search-dir=. --write .",
