@@ -9,6 +9,12 @@ export interface Props {
 const { image } = Astro.props
 ---
 
-<header class="container">
+<header class="container-fluid">
   <HeaderRC image={image} />
 </header>
+
+<style>
+  header {
+    position: fixed;
+  }
+</style>

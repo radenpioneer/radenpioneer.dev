@@ -11,15 +11,21 @@ const { title, subtitle, description } = Astro.props
 ---
 
 <Layout title={title} description={description}>
-  <article>
-    <h1 class="_title">{title}</h1>
-    {subtitle && <p class="_subtitle">{subtitle}</p>}
-    <slot />
-  </article>
+  <section class="container">
+    <article>
+      <h1 class="_title">{title}</h1>
+      {subtitle && <p class="_subtitle">{subtitle}</p>}
+      <slot />
+    </article>
+  </section>
 </Layout>
 
 <style lang="scss">
   @use '../styles/fonts';
+
+  section {
+    padding-top: 8rem;;
+  }
 
   article {
     max-width: 65ch;
