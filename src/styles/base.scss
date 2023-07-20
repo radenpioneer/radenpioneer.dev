@@ -1,6 +1,11 @@
 @use '@picocss/pico/scss/pico.slim.scss';
 @use './fonts';
+@use './theme';
 
 :root {
   @extend %body;
+}
+
+body {
+  min-height: 100dvh;
 }

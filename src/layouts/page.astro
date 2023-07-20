@@ -4,12 +4,13 @@ import Layout from './layout.astro'
 export interface Props {
   title: string
   subtitle?: string | undefined
+  description?: string | undefined
 }
 
-const { title, subtitle } = Astro.props
+const { title, subtitle, description } = Astro.props
 ---
 
-<Layout>
+<Layout title={title} description={description}>
   <article>
     <h1 class="_title">{title}</h1>
     {subtitle && <p class="_subtitle">{subtitle}</p>}
@@ -29,6 +30,14 @@ const { title, subtitle } = Astro.props
     --font-size: 2.5rem;
     --typography-spacing-vertical: 1rem;
     line-height: 110%;
+
+    --color: transparent;
+    background-image: linear-gradient(
+      to right,
+      var(--primary) 5%,
+      var(--secondary) 95%
+    );
+    background-clip: text;
   }
 
   ._subtitle {

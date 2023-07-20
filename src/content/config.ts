@@ -8,6 +8,13 @@ const ContentCollectionBase = ({ image }: { image: ImageFunction }) =>
   })
 
 export const collections = {
+  site: defineCollection({
+    type: 'data',
+    schema: z.object({
+      title: z.string(),
+      description: z.string(),
+    }),
+  }),
   pages: defineCollection({
     type: 'content',
     schema: ContentCollectionBase,

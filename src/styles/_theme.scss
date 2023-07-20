@@ -1,0 +1,85 @@
+/* Light scheme (Default) */
+/* Can be forced with data-theme="light" */
+[data-theme='light'],
+:root:not([data-theme='dark']) {
+  --primary: #006399;
+  --primary-hover: #cde5ff;
+  --primary-focus: #001d32;
+  --primary-inverse: #ffffff;
+  --secondary: #bb0055;
+  --secondary-hover: #ffd9df;
+  --secondary-focus: #3f0018;
+  --secondary-inverse: #ffffff;
+  --contrast: #1c1d00;
+  --contrast-hover: #fffbff;
+  --contrast-focus: #1c1d00;
+  --contrast-inverse: #fffbff;
+  --muted-color: #42474e;
+  --muted-border-color: #dee3eb;
+  --background-color: #fffbff;
+  --color: #1c1d00;
+  --del-color: #ba1a1a;
+}
+
+/* Dark scheme (Auto) */
+/* Automatically enabled if user has Dark mode enabled */
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --primary: #94ccff;
+    --primary-hover: #cde5ff;
+    --primary-focus: #004a74;
+    --primary-inverse: #003352;
+    --secondary: #ffb1c2;
+    --secondary-hover: #ffd9df;
+    --secondary-focus: #8f003f;
+    --secondary-inverse: #66002b;
+    --contrast: #e6e971;
+    --contrast-hover: #c2c7cf;
+    --contrast-focus: #42474e;
+    --contrast-inverse: #1c1d00;
+    --muted-color: #42474e;
+    --muted-border-color: #dee3eb;
+    --background-color: #1c1d00;
+    --color: #c2c7cf;
+    --del-color: #ffb4ab;
+  }
+}
+
+/* Dark scheme (Forced) */
+/* Enabled if forced with data-theme="dark" */
+[data-theme='dark'] {
+  --primary: #94ccff;
+  --primary-hover: #cde5ff;
+  --primary-focus: #004a74;
+  --primary-inverse: #003352;
+  --secondary: #ffb1c2;
+  --secondary-hover: #ffd9df;
+  --secondary-focus: #8f003f;
+  --secondary-inverse: #66002b;
+  --contrast: #e6e971;
+  --contrast-hover: #c2c7cf;
+  --contrast-focus: #42474e;
+  --contrast-inverse: #1c1d00;
+  --muted-color: #42474e;
+  --muted-border-color: #dee3eb;
+  --background-color: #1c1d00;
+  --color: #c2c7cf;
+  --del-color: #ffb4ab;
+}
+
+/* (Common styles) */
+:root {
+  --h1-color: var(--color);
+  --h2-color: var(--color);
+  --h3-color: var(--color);
+  --h4-color: var(--color);
+  --h5-color: var(--color);
+  --h6-color: var(--color);
+  --mark-background-color: var(--secondary-hover);
+  --mark-color: var(--secondary-focus);
+  --ins-color: var(--primary);
+  --form-element-active-border-color: var(--primary);
+  --form-element-focus-color: var(--primary-focus);
+  --switch-color: var(--primary-inverse);
+  --switch-checked-background-color: var(--primary);
+}
