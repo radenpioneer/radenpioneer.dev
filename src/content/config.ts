@@ -10,10 +10,12 @@ const ContentCollectionBase = ({ image }: { image: ImageFunction }) =>
 export const collections = {
   site: defineCollection({
     type: 'data',
-    schema: z.object({
-      title: z.string(),
-      description: z.string(),
-    }),
+    schema: ({ image }) =>
+      z.object({
+        title: z.string(),
+        description: z.string(),
+        image: image(),
+      }),
   }),
   pages: defineCollection({
     type: 'content',

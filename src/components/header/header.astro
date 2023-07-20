@@ -1,0 +1,14 @@
+---
+import type { GetImageResult } from 'astro'
+import HeaderRC from './header'
+
+export interface Props {
+  image: GetImageResult
+}
+
+const { image } = Astro.props
+---
+
+<header class="container">
+  <HeaderRC image={image} />
+</header>

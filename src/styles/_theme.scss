@@ -19,6 +19,15 @@
   --background-color: #fffbff;
   --color: #1c1d00;
   --del-color: #ba1a1a;
+  --h1-color: var(--color);
+  --h2-color: var(--color);
+  --h3-color: var(--color);
+  --h4-color: var(--color);
+  --h5-color: var(--color);
+  --h6-color: var(--color);
+  --mark-background-color: var(--secondary-hover);
+  --mark-color: var(--secondary-focus);
+  --ins-color: var(--primary);
 }
 
 /* Dark scheme (Auto) */
@@ -42,6 +51,15 @@
     --background-color: #1c1d00;
     --color: #c2c7cf;
     --del-color: #ffb4ab;
+    --h1-color: var(--color);
+    --h2-color: var(--color);
+    --h3-color: var(--color);
+    --h4-color: var(--color);
+    --h5-color: var(--color);
+    --h6-color: var(--color);
+    --mark-background-color: var(--secondary-hover);
+    --mark-color: var(--secondary-focus);
+    --ins-color: var(--primary);
   }
 }
 
@@ -65,10 +83,6 @@
   --background-color: #1c1d00;
   --color: #c2c7cf;
   --del-color: #ffb4ab;
-}
-
-/* (Common styles) */
-:root {
   --h1-color: var(--color);
   --h2-color: var(--color);
   --h3-color: var(--color);
@@ -78,8 +92,17 @@
   --mark-background-color: var(--secondary-hover);
   --mark-color: var(--secondary-focus);
   --ins-color: var(--primary);
+}
+
+/* (Common styles) */
+:root {
   --form-element-active-border-color: var(--primary);
   --form-element-focus-color: var(--primary-focus);
   --switch-color: var(--primary-inverse);
   --switch-checked-background-color: var(--primary);
+}
+
+::selection {
+  color: var(--secondary-hover);
+  background-color: var(--secondary-focus);
 }
