@@ -1,6 +1,17 @@
+._nav {
+  background-color: calc(var(--background-color) / 1.25);
+  margin-left: calc(var(--spacing) * -1);
+  margin-right: calc(var(--spacing) * -1);
+  padding-left: var(--spacing);
+  padding-right: var(--spacing);
+
+  backdrop-filter: blur(16px) saturate(80%);
+  border-bottom: 1px solid var(--background-color);
+}
+
 ._image {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   object-fit: cover;
   object-position: center;
   border-radius: 9999px;

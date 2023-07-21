@@ -13,8 +13,20 @@ export const collections = {
     schema: ({ image }) =>
       z.object({
         title: z.string(),
+        subtitle: z.string(),
         description: z.string(),
         image: image(),
+        navigation: z.array(
+          z.object({
+            id: z.string(),
+            menu: z.array(
+              z.object({
+                name: z.string(),
+                path: z.string(),
+              })
+            ),
+          })
+        ),
       }),
   }),
   pages: defineCollection({

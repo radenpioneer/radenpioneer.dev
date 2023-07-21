@@ -1,9 +1,12 @@
 ---
 import HeroRC from './hero'
+import { getEntry } from 'astro:content'
+
+const site = await getEntry('site', 'site')
 ---
 
 <section class="container-fluid">
-  <HeroRC />
+  <HeroRC site={site} />
 </section>
 
 <style lang="scss">

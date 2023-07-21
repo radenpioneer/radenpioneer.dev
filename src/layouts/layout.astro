@@ -16,8 +16,8 @@ export interface Props {
   description?: string | undefined
 }
 
-const { data: site } = await getEntry('site', 'site')
-const image = await getImage({ src: site.image, width: 100, height: 100 })
+const site = await getEntry('site', 'site')
+const image = await getImage({ src: site.data.image, width: 80, height: 80 })
 const { title, description } = Astro.props
 ---
 
@@ -25,8 +25,10 @@ const { title, description } = Astro.props
   <!-- Head -->
   <Fragment slot="head">
     <SEO
-      title={title ? `${title} \u2014 ${site.title}` : site.title}
-      description={description || site.description}
+      title={title
+        ? `${title} \u2014 ${site.data.title}`
+        : `${site.data.title} \u2014 ${site.data.subtitle}`}
+      description={description || site.data.description}
     />
     <link rel="preload" as="image" href={image.src} />
     <slot name="head" />
@@ -34,7 +36,7 @@ const { title, description } = Astro.props
 
   <!-- Main Body -->
   <Fragment>
-    <Header image={image} />
+    <Header image={image} site={site} />
     <main>
       <slot />
     </main>

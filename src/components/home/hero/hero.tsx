@@ -1,17 +1,12 @@
 import type { FC } from 'react'
+import type { CollectionEntry } from 'astro:content'
 import style from './hero.module.scss'
 
-const text = ['modern', 'web', 'magician.']
-
-const HeroRC: FC = () => {
+const HeroRC: FC<{ site: CollectionEntry<'site'> }> = ({ site }) => {
   return (
-    <div className={style._hero}>
-      {text.map((t, i) => (
-        <span className={style._title} key={i}>
-          {t}
-        </span>
-      ))}
-    </div>
+    <article className={style._hero}>
+      <h1 className={style._title}>{site.data.subtitle}</h1>
+    </article>
   )
 }
 

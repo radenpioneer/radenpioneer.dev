@@ -26,6 +26,11 @@
   line-height: 110%;
   text-align: center;
   color: var(--primary-inverse);
+
+  max-width: 768px;
+  padding-left: var(--spacing);
+  padding-right: var(--spacing);
+  margin: 0;
 }
 
 @media (min-width: 992px) {

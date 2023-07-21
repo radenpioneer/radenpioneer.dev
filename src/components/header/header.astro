@@ -1,20 +1,24 @@
 ---
 import type { GetImageResult } from 'astro'
 import HeaderRC from './header'
+import type { CollectionEntry } from 'astro:content'
 
 export interface Props {
   image: GetImageResult
+  site: CollectionEntry<'site'>
 }
 
-const { image } = Astro.props
+const { image, site } = Astro.props
 ---
 
 <header class="container-fluid">
-  <HeaderRC image={image} />
+  <HeaderRC image={image} site={site} />
 </header>
 
 <style>
   header {
+    --block-spacing-vertical: 0;
+
     position: fixed;
   }
 </style>
