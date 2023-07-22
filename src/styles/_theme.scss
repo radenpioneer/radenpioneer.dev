@@ -1,97 +1,56 @@
 /* Light scheme (Default) */
 /* Can be forced with data-theme="light" */
+@mixin light {
+  --primary: hsl(190, 90%, 34%);
+  --primary-hover: hsl(190, 90%, 50%);
+  --primary-focus: hsl(190, 90%, 95%);
+  --primary-inverse: hsl(190, 90%, 100%);
+  --secondary: hsl(315, 90%, 34%);
+  --secondary-hover: hsl(315, 90%, 50%);
+  --secondary-focus: hsl(315, 90%, 95%);
+  --secondary-inverse: hsl(315, 90%, 100%);
+  --contrast: hsl(190, 0%, 15%);
+  --contrast-hover: hsl(190, 0%, 35%);
+  --contrast-focus: hsl(190, 0%, 85%);
+  --contrast-inverse: hsl(190, 0%, 95%);
+  --background-color: hsl(190, 90%, 99%);
+  --color: hsl(190, 90%, 5%);
+}
+
+@mixin dark {
+  --primary: hsl(190, 60%, 34%);
+  --primary-hover: hsl(190, 60%, 50%);
+  --primary-focus: hsl(190, 60%, 15%);
+  --primary-inverse: hsl(190, 60%, 0%);
+  --secondary: hsl(315, 60%, 34%);
+  --secondary-hover: hsl(315, 60%, 50%);
+  --secondary-focus: hsl(315, 60%, 15%);
+  --secondary-inverse: hsl(315, 60%, 0%);
+  --contrast: hsl(190, 0%, 95%);
+  --contrast-hover: hsl(190, 0%, 85%);
+  --contrast-focus: hsl(190, 0%, 85%);
+  --contrast-inverse: hsl(190, 0%, 15%);
+  --background-color: hsl(190, 90%, 7.5%);
+  --color: hsl(190, 0%, 70%);
+}
+
 [data-theme='light'],
 :root:not([data-theme='dark']) {
-  --primary: #006399;
-  --primary-hover: #cde5ff;
-  --primary-focus: #001d32;
-  --primary-inverse: #ffffff;
-  --secondary: #bb0055;
-  --secondary-hover: #ffd9df;
-  --secondary-focus: #3f0018;
-  --secondary-inverse: #ffffff;
-  --contrast: #1c1d00;
-  --contrast-hover: #fffbff;
-  --contrast-focus: #1c1d00;
-  --contrast-inverse: #fffbff;
-  --muted-color: #42474e;
-  --muted-border-color: #dee3eb;
-  --background-color: #fffbff;
-  --color: #1c1d00;
-  --del-color: #ba1a1a;
-  --h1-color: var(--color);
-  --h2-color: var(--color);
-  --h3-color: var(--color);
-  --h4-color: var(--color);
-  --h5-color: var(--color);
-  --h6-color: var(--color);
-  --mark-background-color: var(--secondary-hover);
-  --mark-color: var(--secondary-focus);
-  --ins-color: var(--primary);
+  @include light;
 }
 
 /* Dark scheme (Auto) */
 /* Automatically enabled if user has Dark mode enabled */
 @media only screen and (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    --primary: #94ccff;
-    --primary-hover: #cde5ff;
-    --primary-focus: #004a74;
-    --primary-inverse: #003352;
-    --secondary: #ffb1c2;
-    --secondary-hover: #ffd9df;
-    --secondary-focus: #8f003f;
-    --secondary-inverse: #66002b;
-    --contrast: #e6e971;
-    --contrast-hover: #c2c7cf;
-    --contrast-focus: #42474e;
-    --contrast-inverse: #1c1d00;
-    --muted-color: #42474e;
-    --muted-border-color: #dee3eb;
-    --background-color: #1c1d00;
-    --color: #c2c7cf;
-    --del-color: #ffb4ab;
-    --h1-color: var(--color);
-    --h2-color: var(--color);
-    --h3-color: var(--color);
-    --h4-color: var(--color);
-    --h5-color: var(--color);
-    --h6-color: var(--color);
-    --mark-background-color: var(--secondary-hover);
-    --mark-color: var(--secondary-focus);
-    --ins-color: var(--primary);
+    @include dark;
   }
 }
 
 /* Dark scheme (Forced) */
 /* Enabled if forced with data-theme="dark" */
 [data-theme='dark'] {
-  --primary: #94ccff;
-  --primary-hover: #cde5ff;
-  --primary-focus: #004a74;
-  --primary-inverse: #003352;
-  --secondary: #ffb1c2;
-  --secondary-hover: #ffd9df;
-  --secondary-focus: #8f003f;
-  --secondary-inverse: #66002b;
-  --contrast: #e6e971;
-  --contrast-hover: #c2c7cf;
-  --contrast-focus: #42474e;
-  --contrast-inverse: #1c1d00;
-  --muted-color: #42474e;
-  --muted-border-color: #dee3eb;
-  --background-color: #1c1d00;
-  --color: #c2c7cf;
-  --del-color: #ffb4ab;
-  --h1-color: var(--color);
-  --h2-color: var(--color);
-  --h3-color: var(--color);
-  --h4-color: var(--color);
-  --h5-color: var(--color);
-  --h6-color: var(--color);
-  --mark-background-color: var(--secondary-hover);
-  --mark-color: var(--secondary-focus);
-  --ins-color: var(--primary);
+  @include dark;
 }
 
 /* (Common styles) */
@@ -103,6 +62,6 @@
 }
 
 ::selection {
-  color: var(--secondary-hover);
+  color: var(--secondary);
   background-color: var(--secondary-focus);
 }

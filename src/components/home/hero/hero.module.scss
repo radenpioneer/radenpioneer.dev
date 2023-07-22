@@ -6,16 +6,7 @@
   align-items: center;
   justify-content: center;
   flex: 1 1 0%;
-
-  background-image: linear-gradient(
-    to right,
-    var(--primary) 5%,
-    var(--secondary) 95%
-  );
-
-  margin-left: calc(var(--spacing) * -1);
-  margin-right: calc(var(--spacing) * -1);
-  margin-top: calc(var(--block-spacing-vertical) * -1);
+  margin-top: calc(var(--block-spacing-vertical) * -1)
 }
 
 ._title {
@@ -25,7 +16,13 @@
   font-size: 4rem;
   line-height: 110%;
   text-align: center;
-  color: var(--primary-inverse);
+  color: transparent;
+  background-clip: text;
+  background-image: linear-gradient(
+    to right,
+    var(--primary) 5%,
+    var(--secondary) 95%
+  );
 
   max-width: 768px;
   padding-left: var(--spacing);
