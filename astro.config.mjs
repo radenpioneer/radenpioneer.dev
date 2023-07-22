@@ -8,6 +8,7 @@ import svgr from 'vite-plugin-svgr'
 // https://astro.build/config
 export default defineConfig({
   integrations: [react(), markdoc()],
+  compressHTML: process.env.VERCEL ? true : false,
   vite: {
     plugins: [svgr()],
     css: {
