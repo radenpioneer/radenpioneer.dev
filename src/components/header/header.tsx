@@ -1,6 +1,7 @@
 import type { FC } from 'react'
 import type { GetImageResult } from 'astro'
 import type { CollectionEntry } from 'astro:content'
+import MenuIcon from '~icons/material-symbols/menu'
 import style from './header.module.scss'
 
 const HeaderRC: FC<{
@@ -46,10 +47,15 @@ const HeaderMenu: FC<{ site: CollectionEntry<'site'> }> = ({ site }) => {
       {site.data.navigation
         .find((n) => n.id === 'main')
         ?.menu.map((item, i) => (
-          <li key={i}>
+          <li className={style._menuitems} key={i}>
             <a href={item.path}>{item.name}</a>
           </li>
         ))}
+      <li className={style._btn}>
+        <div className="outline" role="button">
+          <MenuIcon />
+        </div>
+      </li>
     </ul>
   )
 }

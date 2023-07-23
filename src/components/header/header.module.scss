@@ -16,3 +16,17 @@
   object-position: center;
   border-radius: 9999px;
 }
+
+._menuitems {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  ._btn {
+    display: none;
+  }
+
+  ._menuitems {
+    display: inline-block;
+  }
+}
