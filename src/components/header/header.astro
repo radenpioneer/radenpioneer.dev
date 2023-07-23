@@ -12,9 +12,9 @@ const { image, site } = Astro.props
 ---
 
 <header class="container-fluid">
-  <HeaderRC image={image} site={site} client:load />
+  <HeaderRC image={image} site={site} client:idle />
 </header>
-<HeaderMenuMobileDialog site={site} client:load />
+<HeaderMenuMobileDialog site={site} client:idle />
 
 <style>
   header {
@@ -22,5 +22,7 @@ const { image, site } = Astro.props
 
     position: fixed;
     z-index: 9999;
+    pointer-events: initial;
+    touch-action: initial;
   }
 </style>

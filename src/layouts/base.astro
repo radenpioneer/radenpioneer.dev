@@ -8,11 +8,12 @@ export interface Props {
 const { lang } = Astro.props
 ---
 
-<html lang={lang || 'en'}>
+<html id="html" lang={lang || 'en'}>
   <Head>
     <slot name="head" />
   </Head>
   <body>
     <slot />
+    <script src="../components/scripts/menu.ts"></script>
   </body>
 </html>

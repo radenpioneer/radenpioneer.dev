@@ -1,3 +1,5 @@
+@use '../../styles/fonts';
+
 ._nav {
   background-color: calc(var(--background-color) / 1.25);
   margin-left: calc(var(--spacing) * -1);
@@ -21,9 +23,12 @@
   display: none;
 }
 
-.menumodal {
-  position: absolute;
-  inset: 0;
+._menuitems_mobile {
+  @extend %heading;
+  font-family: var(--font-family);
+  font-size: 4rem;
+  font-weight: 700;
+  list-style: none;
 }
 
 @media (min-width: 992px) {
