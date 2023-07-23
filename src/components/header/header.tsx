@@ -4,15 +4,60 @@ import type { CollectionEntry } from 'astro:content'
 import MenuIcon from '~icons/material-symbols/menu'
 import { gsap } from 'gsap'
 import { useStore } from '@nanostores/react'
-import { $isMenuOpen } from './header.store'
+import { $isMenuOpen, $isScrollingDown } from './header.store'
 import style from './header.module.scss'
 
 const HeaderRC: FC<{
   image: GetImageResult
   site: CollectionEntry<'site'>
 }> = ({ image, site }) => {
+  const isScrollingDown = useStore($isScrollingDown)
+  const nav = useRef(null)
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY
+
+    const updateScroll = () => {
+      const scrollY = window.scrollY
+      const isDown = scrollY > lastScrollY
+      if (
+        isDown !== isScrollingDown &&
+        (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)
+      ) {
+        $isScrollingDown.set(isDown)
+      }
+
+      lastScrollY = scrollY > 0 ? scrollY : 0
+    }
+
+    window.addEventListener('scroll', updateScroll)
+    return () => window.removeEventListener('scroll', updateScroll)
+  }, [isScrollingDown])
+
+  useEffect(() => {
+    $isScrollingDown.subscribe((value) => {
+      if (value) {
+        gsap.to(nav.current, {
+          y: -100,
+          duration: 0.1,
+        })
+      } else {
+        gsap.fromTo(
+          nav.current,
+          {
+            y: -100,
+          },
+          {
+            y: 0,
+            duration: 0.1,
+          }
+        )
+      }
+    })
+  }, [])
+
   return (
-    <nav className={style._nav}>
+    <nav ref={nav} className={style._nav}>
       <HeaderProfile image={image} site={site} />
       <HeaderMenu site={site} />
     </nav>
