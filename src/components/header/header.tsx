@@ -1,7 +1,8 @@
-import type { FC } from 'react'
+import { type FC, useRef, useEffect } from 'react'
 import type { GetImageResult } from 'astro'
 import type { CollectionEntry } from 'astro:content'
 import MenuIcon from '~icons/material-symbols/menu'
+import { gsap } from 'gsap'
 import { useStore } from '@nanostores/react'
 import { $isMenuOpen } from './header.store'
 import style from './header.module.scss'
@@ -72,18 +73,70 @@ export const HeaderMenuMobileDialog: FC<{ site: CollectionEntry<'site'> }> = ({
 }) => {
   const mainMenu = site.data.navigation.find((n) => n.id === 'main')
   const isMenuOpen = useStore($isMenuOpen)
+  const dialog = useRef(null)
+  const tl = useRef<GSAPTimeline>()
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      $isMenuOpen.subscribe((value) => {
+        if (value) {
+          tl.current = gsap
+            .timeline({ delay: 0.05 })
+            .fromTo(
+              '._dialog',
+              {
+                y: '-250vw',
+                opacity: 0,
+              },
+              {
+                y: '0',
+                opacity: 100,
+                duration: 0.25,
+              }
+            )
+            .from(
+              '._itemsanim',
+              {
+                x: 50,
+                opacity: 0,
+                duration: 0.25,
+                stagger: 0.1,
+                ease: 'power1.out',
+              },
+              '-=0.1'
+            )
+        } else {
+          gsap.fromTo(
+            '._dialog',
+            {
+              y: '0',
+              opacity: 100,
+            },
+            {
+              y: '-250vw',
+              opacity: 0,
+              duration: 0.25,
+            }
+          )
+        }
+      })
+    }, dialog)
+    return ctx.revert()
+  }, [])
 
   return (
-    <dialog open={isMenuOpen}>
-      <article>
-        <ul>
-          {mainMenu!.menu.map((item, i) => (
-            <li className={style._menuitems_mobile} key={i}>
-              <a href={item.path}>{item.name}</a>
-            </li>
-          ))}
-        </ul>
-      </article>
-    </dialog>
+    <div ref={dialog}>
+      <dialog className="_dialog" open={isMenuOpen}>
+        <article>
+          <ul>
+            {mainMenu!.menu.map((item, i) => (
+              <li className={`${style._menuitems_mobile} _itemsanim`} key={i}>
+                <a href={item.path}>{item.name}</a>
+              </li>
+            ))}
+          </ul>
+        </article>
+      </dialog>
+    </div>
   )
 }
