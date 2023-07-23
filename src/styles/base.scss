@@ -1,0 +1,22 @@
+@import '@picocss/pico/scss/pico.slim.scss';
+@import '@picocss/pico/scss/components/nav';
+@import '@picocss/pico/scss/components/modal';
+@import './theme';
+@import './fonts';
+
+:root {
+  @extend %body;
+}
+
+body {
+  min-height: 100dvh;
+}
+
+._dialog {
+  &:not([open]),
+  &[open='false'] {
+    display: flex;
+    transform: translate(0px, -250vw);
+    opacity: 0;
+  }
+}

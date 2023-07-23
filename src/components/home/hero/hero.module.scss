@@ -1,0 +1,61 @@
+@use '../../../styles/fonts';
+
+._hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 0%;
+  margin-top: calc(var(--block-spacing-vertical) * -1);
+  margin-right: calc(var(--spacing) * -1);
+  margin-left: calc(var(--spacing) * -1);
+  position: relative;
+}
+
+._title {
+  @extend %heading;
+  --font-weight: 700;
+  --font-size: 4rem;
+  --color: transparent;
+  line-height: 110%;
+  text-align: center;
+  background-clip: text;
+  background-image: linear-gradient(
+    to right,
+    var(--primary) 5%,
+    var(--secondary) 95%
+  );
+
+  max-width: 768px;
+  padding-left: var(--spacing);
+  padding-right: var(--spacing);
+  margin: 0;
+}
+
+._maze {
+  position: absolute;
+  inset: 0px;
+  z-index: -1;
+  user-select: none;
+  opacity: 25%;
+
+  ._wrapper {
+    position: relative;
+    height: 0;
+    width: 100%;
+    padding: 0;
+    padding-bottom: 100dvh;
+    svg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      inset: 0;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  ._title {
+    font-size: 7rem;
+  }
+}

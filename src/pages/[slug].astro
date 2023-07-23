@@ -1,0 +1,24 @@
+---
+import PageLayout from '~/layouts/page.astro'
+import { getCollection } from 'astro:content'
+import type { InferGetStaticPropsType } from 'astro'
+
+export const getStaticPaths = async () => {
+  const pages = await getCollection('pages', ({ slug }) => slug !== 'about')
+  return pages.map((page) => {
+    return {
+      params: {
+        slug: page.slug,
+      },
+      props: { page },
+    }
+  })
+}
+
+const { page } = Astro.props as InferGetStaticPropsType<typeof getStaticPaths>
+const { Content } = await page.render()
+---
+
+<PageLayout title={page.data.title} subtitle={page.data.subtitle}>
+  <Content />
+</PageLayout>

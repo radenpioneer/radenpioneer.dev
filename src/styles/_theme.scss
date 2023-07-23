@@ -1,0 +1,73 @@
+/* Light scheme (Default) */
+/* Can be forced with data-theme="light" */
+@mixin light {
+  --primary: hsl(190, 90%, 34%);
+  --primary-hover: hsl(190, 90%, 50%);
+  --primary-focus: hsl(190, 90%, 95%);
+  --primary-inverse: hsl(190, 90%, 100%);
+  --secondary: hsl(315, 90%, 34%);
+  --secondary-hover: hsl(315, 90%, 50%);
+  --secondary-focus: hsl(315, 90%, 95%);
+  --secondary-inverse: hsl(315, 90%, 100%);
+  --contrast: hsl(190, 0%, 15%);
+  --contrast-hover: hsl(190, 0%, 35%);
+  --contrast-focus: hsl(190, 0%, 85%);
+  --contrast-inverse: hsl(190, 0%, 95%);
+  --background-color: hsl(190, 90%, 99%);
+  --color: hsl(190, 90%, 5%);
+}
+
+@mixin dark {
+  --primary: hsl(190, 60%, 34%);
+  --primary-hover: hsl(190, 60%, 50%);
+  --primary-focus: hsl(190, 60%, 15%);
+  --primary-inverse: hsl(190, 60%, 0%);
+  --secondary: hsl(315, 60%, 34%);
+  --secondary-hover: hsl(315, 60%, 50%);
+  --secondary-focus: hsl(315, 60%, 15%);
+  --secondary-inverse: hsl(315, 60%, 0%);
+  --contrast: hsl(190, 0%, 95%);
+  --contrast-hover: hsl(190, 0%, 85%);
+  --contrast-focus: hsl(190, 0%, 85%);
+  --contrast-inverse: hsl(190, 0%, 15%);
+  --background-color: hsl(190, 90%, 7.5%);
+  --color: hsl(190, 0%, 70%);
+}
+
+[data-theme='light'],
+:root:not([data-theme='dark']) {
+  @include light;
+}
+
+/* Dark scheme (Auto) */
+/* Automatically enabled if user has Dark mode enabled */
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    @include dark;
+  }
+}
+
+/* Dark scheme (Forced) */
+/* Enabled if forced with data-theme="dark" */
+[data-theme='dark'] {
+  @include dark;
+}
+
+/* (Common styles) */
+:root {
+  --h1-color: var(--color) !important;
+  --h2-color: var(--color) !important;
+  --h3-color: var(--color) !important;
+  --h4-color: var(--color) !important;
+  --h5-color: var(--color) !important;
+  --h6-color: var(--color) !important;
+  --form-element-active-border-color: var(--primary);
+  --form-element-focus-color: var(--primary-focus);
+  --switch-color: var(--primary-inverse);
+  --switch-checked-background-color: var(--primary);
+}
+
+::selection {
+  color: var(--secondary);
+  background-color: var(--secondary-focus);
+}

@@ -1,5 +1,10 @@
 # build output
 dist/
+public/pwa-*
+public/maskable-icon-*
+public/apple-touch-icon-*
+public/favicon.ico
+
 # generated types
 .astro/
 
@@ -19,3 +24,4 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+.vercel

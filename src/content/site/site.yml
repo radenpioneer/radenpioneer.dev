@@ -1,0 +1,16 @@
+title: radenpioneer.dev
+subtitle: modern web magician
+description: |
+  Dev and Portfolio blog of R. Ilham Sastronegoro. Written in Astro 🚀.
+image: ~/assets/profile.jpg
+navigation:
+  - id: main
+    menu:
+      - name: About
+        path: /about
+      - name: Work
+        path: /work
+      - name: Blog
+        path: /blog
+      - name: Contact
+        path: /contact

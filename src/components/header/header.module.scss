@@ -1,0 +1,42 @@
+@use '../../styles/fonts';
+
+._nav {
+  background-color: calc(var(--background-color) / 1.25);
+  margin-left: calc(var(--spacing) * -1);
+  margin-right: calc(var(--spacing) * -1);
+  padding-left: var(--spacing);
+  padding-right: var(--spacing);
+
+  backdrop-filter: blur(16px) saturate(80%);
+  border-bottom: 1px solid var(--background-color);
+}
+
+._image {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 9999px;
+}
+
+._menuitems {
+  display: none;
+}
+
+._menuitems_mobile {
+  @extend %heading;
+  font-family: var(--font-family);
+  font-size: 3rem;
+  font-weight: 700;
+  list-style: none;
+}
+
+@media (min-width: 992px) {
+  ._btn {
+    display: none;
+  }
+
+  ._menuitems {
+    display: inline-block;
+  }
+}

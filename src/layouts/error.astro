@@ -1,0 +1,88 @@
+---
+import Layout from '~/layouts/layout.astro'
+import { MazeSquare } from '~/components/maze'
+
+export interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<Layout title={title}>
+  <section class="_error">
+    <div class="_title">
+      <h1>{title}</h1>
+    </div>
+    <div class="_maze">
+      <MazeSquare />
+    </div>
+  </section>
+</Layout>
+
+<style lang="scss">
+  @use '../styles/fonts';
+
+  ._error {
+    min-height: 100dvh;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1rem;
+    align-items: top;
+    padding-left: var(--spacing);
+    padding-right: var(--spacing);
+    margin-top: calc(var(--block-spacing-vertical) * -1);
+    margin-bottom: 0;
+  }
+
+  ._title {
+    h1 {
+      @extend %heading;
+      --font-weight: 700;
+      --font-size: 4rem;
+      --color: transparent;
+      line-height: 110%;
+      text-align: center;
+      background-clip: text;
+      background-image: linear-gradient(
+        to right,
+        var(--primary) 5%,
+        var(--secondary) 95%
+      );
+      margin-bottom: 0;
+    }
+
+    order: 2;
+  }
+
+  ._maze {
+    margin-top: calc(var(--spacing) * -1);
+    margin-right: calc(var(--spacing) * -1);
+    margin-left: calc(var(--spacing) * -1);
+    order: 1;
+  }
+
+  @media (min-width: 992px) {
+    ._error {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: center;
+    }
+
+    ._title {
+      h1 {
+        --font-size: 7rem;
+        text-align: right;
+        margin-right: calc(var(--spacing) * 2);
+      }
+
+      order: 1;
+    }
+
+    ._maze {
+      margin-right: calc(var(--spacing) * -1);
+      margin-left: 0;
+      margin-top: 0;
+      order: 2;
+    }
+  }
+</style>

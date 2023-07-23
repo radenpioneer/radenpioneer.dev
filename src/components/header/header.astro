@@ -1,0 +1,29 @@
+---
+import type { GetImageResult } from 'astro'
+import HeaderRC, { HeaderMenuMobileDialog } from './header'
+import type { CollectionEntry } from 'astro:content'
+
+export interface Props {
+  image: GetImageResult
+  site: CollectionEntry<'site'>
+}
+
+const { image, site } = Astro.props
+---
+
+<header class="container-fluid">
+  <HeaderRC image={image} site={site} client:idle />
+</header>
+<HeaderMenuMobileDialog site={site} client:idle />
+
+<style>
+  header {
+    --block-spacing-vertical: 0;
+
+    position: fixed;
+    z-index: 9999;
+    pointer-events: initial;
+    touch-action: initial;
+    user-select: none;
+  }
+</style>

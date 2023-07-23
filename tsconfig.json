@@ -1,3 +1,17 @@
 {
-  "extends": "astro/tsconfigs/strictest"
+  "extends": "astro/tsconfigs/strictest",
+  "compilerOptions": {
+    "types": [
+      "vite-plugin-svgr/client",
+      "unplugin-icons/types/react",
+      "vite-plugin-pwa/client"
+    ],
+    "lib": ["WebWorker"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"]
+    }
+  }
 }
