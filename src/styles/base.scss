@@ -1,7 +1,9 @@
-@use '@picocss/pico/scss/pico.slim.scss';
-@use '@picocss/pico/scss/components/nav';
 @use './fonts';
 @use './theme';
+
+@import '@picocss/pico/scss/pico.slim.scss';
+@import '@picocss/pico/scss/components/nav';
+@import '@picocss/pico/scss/components/modal';
 
 :root {
   @extend %body;

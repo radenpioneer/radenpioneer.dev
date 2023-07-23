@@ -21,6 +21,11 @@
   display: none;
 }
 
+.menumodal {
+  position: absolute;
+  inset: 0;
+}
+
 @media (min-width: 992px) {
   ._btn {
     display: none;

@@ -2,6 +2,7 @@ import type { FC } from 'react'
 import type { GetImageResult } from 'astro'
 import type { CollectionEntry } from 'astro:content'
 import MenuIcon from '~icons/material-symbols/menu'
+import { isMenuOpen } from './header.store'
 import style from './header.module.scss'
 
 const HeaderRC: FC<{
@@ -42,20 +43,44 @@ const HeaderProfile: FC<{
 }
 
 const HeaderMenu: FC<{ site: CollectionEntry<'site'> }> = ({ site }) => {
+  const mainMenu = site.data.navigation.find((n) => n.id === 'main')
+
   return (
     <ul>
-      {site.data.navigation
-        .find((n) => n.id === 'main')
-        ?.menu.map((item, i) => (
-          <li className={style._menuitems} key={i}>
-            <a href={item.path}>{item.name}</a>
-          </li>
-        ))}
+      {mainMenu!.menu.map((item, i) => (
+        <li className={style._menuitems} key={i}>
+          <a href={item.path}>{item.name}</a>
+        </li>
+      ))}
       <li className={style._btn}>
-        <div className="outline" role="button">
+        <div
+          onClick={() => isMenuOpen.set(true)}
+          className="outline"
+          role="button"
+        >
           <MenuIcon />
         </div>
       </li>
     </ul>
+  )
+}
+
+export const HeaderMenuMobileDialog: FC<{ site: CollectionEntry<'site'> }> = ({
+  site,
+}) => {
+  const mainMenu = site.data.navigation.find((n) => n.id === 'main')
+
+  return (
+    <dialog open={isMenuOpen.get()}>
+      <article>
+        <ul>
+          {mainMenu!.menu.map((item, i) => (
+            <li className={style._menuitems} key={i}>
+              <a href={item.path}>{item.name}</a>
+            </li>
+          ))}
+        </ul>
+      </article>
+    </dialog>
   )
 }

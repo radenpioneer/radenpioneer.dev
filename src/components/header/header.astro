@@ -1,6 +1,6 @@
 ---
 import type { GetImageResult } from 'astro'
-import HeaderRC from './header'
+import HeaderRC, { HeaderMenuMobileDialog } from './header'
 import type { CollectionEntry } from 'astro:content'
 
 export interface Props {
@@ -12,8 +12,9 @@ const { image, site } = Astro.props
 ---
 
 <header class="container-fluid">
-  <HeaderRC image={image} site={site} />
+  <HeaderRC image={image} site={site} client:load />
 </header>
+<HeaderMenuMobileDialog site={site} client:load />
 
 <style>
   header {
