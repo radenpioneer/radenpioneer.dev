@@ -10,6 +10,11 @@ import svgr from 'vite-plugin-svgr'
 export default defineConfig({
   integrations: [react(), markdoc()],
   compressHTML: process.env.VERCEL ? true : false,
+  redirects: {
+    '/work': '/soon',
+    '/blog': '/soon',
+    '/contact': '/soon',
+  },
   vite: {
     plugins: [svgr(), Icons({ compiler: 'jsx', jsx: 'react' })],
     css: {

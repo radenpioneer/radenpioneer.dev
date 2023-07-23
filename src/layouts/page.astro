@@ -1,5 +1,6 @@
 ---
 import Layout from './layout.astro'
+import { MazeWide } from '~/components/maze'
 
 export interface Props {
   title: string
@@ -12,7 +13,10 @@ const { title, subtitle, description } = Astro.props
 
 <Layout title={title} description={description}>
   <section class="container">
-    <article>
+    <div class="_maze">
+      <MazeWide />
+    </div>
+    <article class="_article">
       <h1 class="_title">{title}</h1>
       {subtitle && <p class="_subtitle">{subtitle}</p>}
       <slot />
@@ -25,10 +29,18 @@ const { title, subtitle, description } = Astro.props
 
   section {
     padding-top: 8rem;
+    position: relative;
+    overflow-x: hidden;
   }
 
-  article {
+  ._article {
     max-width: 65ch;
+
+    :global(p) :global(img) {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-height: 250px;
+    }
   }
 
   ._title {
@@ -50,6 +62,19 @@ const { title, subtitle, description } = Astro.props
     --font-size: 1.5rem;
   }
 
+  ._maze {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    margin-left: calc(var(--spacing) * -1);
+    margin-right: calc(var(--spacing) * -1);
+    user-select: none;
+    opacity: 10%;
+    transform: translate(0, -20%);
+  }
+
   @media (min-width: 992px) {
     ._title {
       --font-size: 4rem;
@@ -59,6 +84,10 @@ const { title, subtitle, description } = Astro.props
 
     ._subtitle {
       --font-size: 1.75rem;
+    }
+
+    ._maze {
+      transform: translate(0, -50%);
     }
   }
 </style>

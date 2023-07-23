@@ -171,7 +171,11 @@ export const HeaderMenuMobileDialog: FC<{ site: CollectionEntry<'site'> }> = ({
 
   return (
     <div ref={dialog}>
-      <dialog className="_dialog" open={isMenuOpen}>
+      <dialog
+        className="_dialog"
+        open={isMenuOpen}
+        onClick={() => $isMenuOpen.set(!isMenuOpen)}
+      >
         <article>
           <ul>
             {mainMenu!.menu.map((item, i) => (
