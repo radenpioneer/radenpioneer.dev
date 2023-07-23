@@ -4,6 +4,8 @@ import Header from '~/components/header'
 import { SEO } from 'astro-seo'
 import { getEntry } from 'astro:content'
 import { getImage } from 'astro:assets'
+// @ts-ignore
+import { pwaInfo } from 'virtual:pwa-info'
 
 import '@fontsource/plus-jakarta-sans/400.css'
 import '@fontsource/plus-jakarta-sans/700.css'
@@ -31,6 +33,7 @@ const { title, description } = Astro.props
       description={description || site.data.description}
     />
     <link rel="preload" as="image" href={image.src} />
+    {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
     <slot name="head" />
   </Fragment>
 
@@ -41,4 +44,7 @@ const { title, description } = Astro.props
       <slot />
     </main>
   </Fragment>
+  <script>
+    import '~/components/scripts/pwa'
+  </script>
 </BaseLayout>
