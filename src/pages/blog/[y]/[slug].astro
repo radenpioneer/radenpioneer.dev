@@ -1,0 +1,56 @@
+---
+import PageLayout from '~/layouts/page.astro'
+import { getCollection } from 'astro:content'
+import { getImage } from 'astro:assets'
+import type { InferGetStaticPropsType } from 'astro'
+
+export const getStaticPaths = async () => {
+  const posts = await getCollection('blog', ({ data }) => !data.draft)
+  return posts.map((post) => {
+    return {
+      params: {
+        y: post.data.date.getFullYear(),
+        slug: post.slug,
+      },
+      props: { post },
+    }
+  })
+}
+
+const { post } = Astro.props as InferGetStaticPropsType<typeof getStaticPaths>
+const image = post.data.image
+  ? await getImage({
+      src: post.data.image,
+      width: 1024,
+      height: 768,
+      loading: 'eager',
+    })
+  : undefined
+const { Content } = await post.render()
+---
+
+<PageLayout title={post.data.title} subtitle={post.data.subtitle} image={image}>
+  <p class="_date">
+    <time datetime={post.data.date.toISOString()}
+      ><i
+        ><small
+          >{
+            post.data.date.toLocaleDateString('id-ID', {
+              weekday: 'long',
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric',
+            })
+          }</small
+        ></i
+      ></time
+    >
+  </p>
+  <Content />
+</PageLayout>
+
+<style lang="scss">
+  ._date {
+    color: var(--muted-color);
+  }
+</style>

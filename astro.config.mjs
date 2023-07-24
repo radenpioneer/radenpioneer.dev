@@ -31,7 +31,7 @@ export default defineConfig({
   compressHTML: process.env.VERCEL ? true : false,
   redirects: {
     '/work': '/soon',
-    '/blog': '/soon',
+    '/blog': '/blog/1',
     '/contact': '/soon',
   },
   vite: {

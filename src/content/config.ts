@@ -1,11 +1,9 @@
-import { ImageFunction, defineCollection, z } from 'astro:content'
+import { defineCollection, z } from 'astro:content'
 
-const ContentCollectionBase = ({ image }: { image: ImageFunction }) =>
-  z.object({
-    title: z.string(),
-    subtitle: z.string().optional(),
-    image: image().optional(),
-  })
+const ContentCollectionBase = z.object({
+  title: z.string(),
+  subtitle: z.string().optional(),
+})
 
 export const collections = {
   site: defineCollection({
@@ -31,6 +29,18 @@ export const collections = {
   }),
   pages: defineCollection({
     type: 'content',
-    schema: ContentCollectionBase,
+    schema: ({ image }) =>
+      ContentCollectionBase.extend({
+        image: image().optional(),
+      }),
+  }),
+  blog: defineCollection({
+    type: 'content',
+    schema: ({ image }) =>
+      ContentCollectionBase.extend({
+        date: z.date(),
+        image: image().optional(),
+        draft: z.boolean().optional(),
+      }),
   }),
 }
