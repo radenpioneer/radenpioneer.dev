@@ -126,6 +126,7 @@ const { page } = Astro.props as { page: Page<CollectionEntry<'blog'>> }
 
   ._post {
     h3 {
+      @extend %heading;
       --typography-spacing-vertical: 1rem;
       line-height: 125%;
     }
