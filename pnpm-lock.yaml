@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -66,11 +66,11 @@ dependencies:
     specifier: ^3.12.2
     version: 3.12.2
   marked:
-    specifier: ^5.1.1
-    version: 5.1.1
+    specifier: ^5.1.2
+    version: 5.1.2
   marked-smartypants:
     specifier: ^1.0.2
-    version: 1.0.2(marked@5.1.1)
+    version: 1.0.2(marked@5.1.2)
   nanostores:
     specifier: ^0.9.3
     version: 0.9.3
@@ -4960,18 +4960,18 @@ packages:
     resolution: {integrity: sha512-Z1NL3Tb1M9wH4XESsCDEksWoKTdlUafKc4pt0GRwjUyXaCFZ+dc3g2erqB6zm3szA2IUSi7VnPI+o/9jnxh9hw==}
     dev: false
 
-  /marked-smartypants@1.0.2(marked@5.1.1):
+  /marked-smartypants@1.0.2(marked@5.1.2):
     resolution: {integrity: sha512-hpbM9waiBSIHpqdoU5AAeuYozeObBwUet3xkCFrFBA+1329byRVxLDwYmelMCS3ss+sEVJhDgrunIy+ubiqFwQ==}
     peerDependencies:
       marked: ^4 || ^5
     dependencies:
-      marked: 5.1.1
+      marked: 5.1.2
       smartypants: 0.1.6
     dev: false
 
-  /marked@5.1.1:
-    resolution: {integrity: sha512-bTmmGdEINWmOMDjnPWDxGPQ4qkDLeYorpYbEtFOXzOruTwUE671q4Guiuchn4N8h/v6NGd7916kXsm3Iz4iUSg==}
-    engines: {node: '>= 18'}
+  /marked@5.1.2:
+    resolution: {integrity: sha512-ahRPGXJpjMjwSOlBoTMZAK7ATXkli5qCPxZ21TG44rx1KEo44bii4ekgTDQPNRQ4Kh7JMb9Ub1PVk1NxRSsorg==}
+    engines: {node: '>= 16'}
     hasBin: true
     dev: false
 
