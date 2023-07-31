@@ -20,7 +20,7 @@
     "@astrojs/sitemap": "^2.0.1",
     "@fontsource-variable/plus-jakarta-sans": "^5.0.6",
     "@fontsource/plus-jakarta-sans": "^5.0.5",
-    "@iconify/json": "^2.2.93",
+    "@iconify/json": "^2.2.95",
     "@nanostores/react": "^0.7.1",
     "@picocss/pico": "^1.5.10",
     "@svgr/core": "^8.0.0",
