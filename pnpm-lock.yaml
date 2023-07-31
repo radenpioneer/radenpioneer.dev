@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -24,8 +24,8 @@ dependencies:
     specifier: ^5.0.5
     version: 5.0.5
   '@iconify/json':
-    specifier: ^2.2.93
-    version: 2.2.93
+    specifier: ^2.2.95
+    version: 2.2.95
   '@nanostores/react':
     specifier: ^0.7.1
     version: 0.7.1(nanostores@0.9.3)(react@18.2.0)
@@ -2248,8 +2248,8 @@ packages:
     resolution: {integrity: sha512-zcj9lGqmjXcyTuhfy/XMtOs7AfKS1gp28rbvURI1KIhKkcWD+5wQa+T2WQtaHZy7pfe3bDp4wuUl2ux30DIR9g==}
     dev: false
 
-  /@iconify/json@2.2.93:
-    resolution: {integrity: sha512-gEC9TmJbd96CzJzl0TOYCGWhiHFalHRfhqi+xkVl3uOMWH6l15iVeL7tRiPdY/q5hxYfSva36XbqlDyKFyWCPw==}
+  /@iconify/json@2.2.95:
+    resolution: {integrity: sha512-54c4P8Z2Zuvgd3EEhAGV/byNPJ1sjVHO+Sd94376//6heUW73x04TjtNAnYviFdypI8S7SdYCn+ncyW4JhOmiA==}
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 1.1.1
