@@ -7,10 +7,10 @@ settings:
 dependencies:
   '@astrojs/markdoc':
     specifier: ^0.4.3
-    version: 0.4.3(@types/react@18.2.15)(astro@2.9.6)(react@18.2.0)
+    version: 0.4.3(@types/react@18.2.17)(astro@2.9.6)(react@18.2.0)
   '@astrojs/react':
     specifier: ^2.2.1
-    version: 2.2.1(@types/react-dom@18.2.7)(@types/react@18.2.15)(react-dom@18.2.0)(react@18.2.0)
+    version: 2.2.1(@types/react-dom@18.2.7)(@types/react@18.2.17)(react-dom@18.2.0)(react@18.2.0)
   '@astrojs/rss':
     specifier: ^2.4.3
     version: 2.4.3
@@ -42,8 +42,8 @@ dependencies:
     specifier: ^5.0.1
     version: 5.0.1
   '@types/react':
-    specifier: ^18.2.15
-    version: 18.2.15
+    specifier: ^18.2.17
+    version: 18.2.17
   '@types/react-dom':
     specifier: ^18.2.7
     version: 18.2.7
@@ -183,7 +183,7 @@ packages:
       vscode-uri: 3.0.7
     dev: false
 
-  /@astrojs/markdoc@0.4.3(@types/react@18.2.15)(astro@2.9.6)(react@18.2.0):
+  /@astrojs/markdoc@0.4.3(@types/react@18.2.17)(astro@2.9.6)(react@18.2.0):
     resolution: {integrity: sha512-6RII55pCx7zxj8rTDvebIzgTYBmEmM9RzGKT5q/DapU+6mZRSSUqvbS4ClQ4eEONmNaKalsh2+3FHVncm0wRXg==}
     engines: {node: '>=16.12.0'}
     peerDependencies:
@@ -191,7 +191,7 @@ packages:
     dependencies:
       '@astrojs/internal-helpers': 0.1.1
       '@astrojs/prism': 2.1.2
-      '@markdoc/markdoc': 0.3.0(@types/react@18.2.15)(react@18.2.0)
+      '@markdoc/markdoc': 0.3.0(@types/react@18.2.17)(react@18.2.0)
       astro: 2.9.6(sass@1.64.1)
       esbuild: 0.17.19
       github-slugger: 2.0.0
@@ -234,7 +234,7 @@ packages:
       prismjs: 1.29.0
     dev: false
 
-  /@astrojs/react@2.2.1(@types/react-dom@18.2.7)(@types/react@18.2.15)(react-dom@18.2.0)(react@18.2.0):
+  /@astrojs/react@2.2.1(@types/react-dom@18.2.7)(@types/react@18.2.17)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-nq5Zr8iWdwjSp5fh1NReaCplwsnL4w5PXAY5XWu1jE/frxEfF/ycGHrrhwWW0uJHX9G+kUtmQLR0GBhlR4FmAw==}
     engines: {node: '>=16.12.0'}
     peerDependencies:
@@ -245,7 +245,7 @@ packages:
     dependencies:
       '@babel/core': 7.22.9
       '@babel/plugin-transform-react-jsx': 7.22.5(@babel/core@7.22.9)
-      '@types/react': 18.2.15
+      '@types/react': 18.2.17
       '@types/react-dom': 18.2.7
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -2362,7 +2362,7 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: false
 
-  /@markdoc/markdoc@0.3.0(@types/react@18.2.15)(react@18.2.0):
+  /@markdoc/markdoc@0.3.0(@types/react@18.2.17)(react@18.2.0):
     resolution: {integrity: sha512-QWCF8krIIw52ulflfnoff0yG1eKl9CCGA3KAiOjHyYtHNzSEouFh8lO52nAaO3qV2Ctj1GTB8TTb2rTfvISQfA==}
     engines: {node: '>=14.7.0'}
     peerDependencies:
@@ -2374,7 +2374,7 @@ packages:
       react:
         optional: true
     dependencies:
-      '@types/react': 18.2.15
+      '@types/react': 18.2.17
       react: 18.2.0
     optionalDependencies:
       '@types/markdown-it': 12.2.3
@@ -2886,11 +2886,11 @@ packages:
   /@types/react-dom@18.2.7:
     resolution: {integrity: sha512-GRaAEriuT4zp9N4p1i8BDBYmEyfo+xQ3yHjJU4eiK5NDa1RmUZG+unZABUTK4/Ox/M+GaHwb6Ow8rUITrtjszA==}
     dependencies:
-      '@types/react': 18.2.15
+      '@types/react': 18.2.17
     dev: false
 
-  /@types/react@18.2.15:
-    resolution: {integrity: sha512-oEjE7TQt1fFTFSbf8kkNuc798ahTUzn3Le67/PWjE8MAfYAD/qB7O8hSTcromLFqHCt9bcdOg5GXMokzTjJ5SA==}
+  /@types/react@18.2.17:
+    resolution: {integrity: sha512-u+e7OlgPPh+aryjOm5UJMX32OvB2E3QASOAqVMY6Ahs90djagxwv2ya0IctglNbNTexC12qCSMZG47KPfy1hAA==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
