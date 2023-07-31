@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@astrojs/markdoc':
     specifier: ^0.4.3
-    version: 0.4.3(@types/react@18.2.15)(astro@2.9.1)(react@18.2.0)
+    version: 0.4.3(@types/react@18.2.15)(astro@2.9.6)(react@18.2.0)
   '@astrojs/react':
     specifier: ^2.2.1
     version: 2.2.1(@types/react-dom@18.2.7)(@types/react@18.2.15)(react-dom@18.2.0)(react@18.2.0)
@@ -52,10 +52,10 @@ dependencies:
     version: 0.0.4
   '@vite-pwa/astro':
     specifier: ^0.1.1
-    version: 0.1.1(astro@2.9.1)(vite-plugin-pwa@0.16.4)
+    version: 0.1.1(astro@2.9.6)(vite-plugin-pwa@0.16.4)
   astro:
-    specifier: ^2.9.1
-    version: 2.9.1(sass@1.64.1)
+    specifier: ^2.9.6
+    version: 2.9.6(sass@1.64.1)
   astro-compress:
     specifier: ^1.1.49
     version: 1.1.49
@@ -156,8 +156,8 @@ packages:
       leven: 3.1.0
     dev: false
 
-  /@astrojs/compiler@1.6.1:
-    resolution: {integrity: sha512-QZZhV2kOhvyXEfpaGLgHWNPUOlkMVx3Zw+5IlXXU2p448NwtyYt3C6MuS7baVsTlluH3EedAoDBmelt9hPhfiQ==}
+  /@astrojs/compiler@1.6.3:
+    resolution: {integrity: sha512-n0xTuBznKspc0plk6RHBOlSv/EwQGyMNSxEOPj7HMeiRNnXX4woeSopN9hQsLkqraDds1eRvB4u99buWgVNJig==}
     dev: false
 
   /@astrojs/internal-helpers@0.1.1:
@@ -168,7 +168,7 @@ packages:
     resolution: {integrity: sha512-gssRxLGb8XnvKpqSzrDW5jdzdFnXD7eBXVkPCkkt2hv7Qzb+SAzv6hVgMok3jDCxpR1aeB+XNd9Qszj2h29iog==}
     hasBin: true
     dependencies:
-      '@astrojs/compiler': 1.6.1
+      '@astrojs/compiler': 1.6.3
       '@jridgewell/trace-mapping': 0.3.18
       '@vscode/emmet-helper': 2.9.2
       events: 3.3.0
@@ -183,7 +183,7 @@ packages:
       vscode-uri: 3.0.7
     dev: false
 
-  /@astrojs/markdoc@0.4.3(@types/react@18.2.15)(astro@2.9.1)(react@18.2.0):
+  /@astrojs/markdoc@0.4.3(@types/react@18.2.15)(astro@2.9.6)(react@18.2.0):
     resolution: {integrity: sha512-6RII55pCx7zxj8rTDvebIzgTYBmEmM9RzGKT5q/DapU+6mZRSSUqvbS4ClQ4eEONmNaKalsh2+3FHVncm0wRXg==}
     engines: {node: '>=16.12.0'}
     peerDependencies:
@@ -192,7 +192,7 @@ packages:
       '@astrojs/internal-helpers': 0.1.1
       '@astrojs/prism': 2.1.2
       '@markdoc/markdoc': 0.3.0(@types/react@18.2.15)(react@18.2.0)
-      astro: 2.9.1(sass@1.64.1)
+      astro: 2.9.6(sass@1.64.1)
       esbuild: 0.17.19
       github-slugger: 2.0.0
       gray-matter: 4.0.3
@@ -204,13 +204,13 @@ packages:
       - react
     dev: false
 
-  /@astrojs/markdown-remark@2.2.1(astro@2.9.1):
+  /@astrojs/markdown-remark@2.2.1(astro@2.9.6):
     resolution: {integrity: sha512-VF0HRv4GpC1XEMLnsKf6jth7JSmlt9qpqP0josQgA2eSpCIAC/Et+y94mgdBIZVBYH/yFnMoIxgKVe93xfO2GA==}
     peerDependencies:
       astro: ^2.5.0
     dependencies:
       '@astrojs/prism': 2.1.2
-      astro: 2.9.1(sass@1.64.1)
+      astro: 2.9.6(sass@1.64.1)
       github-slugger: 1.5.0
       import-meta-resolve: 2.2.2
       rehype-raw: 6.1.1
@@ -2893,13 +2893,13 @@ packages:
       unconfig: 0.3.9
     dev: false
 
-  /@vite-pwa/astro@0.1.1(astro@2.9.1)(vite-plugin-pwa@0.16.4):
+  /@vite-pwa/astro@0.1.1(astro@2.9.6)(vite-plugin-pwa@0.16.4):
     resolution: {integrity: sha512-ZImC5fFMekgXyyCEsed5y6R9srFhNfFqwNrOhpi9klOn0nju1eCwHKGodJGK9B4gjxZo35dc5lS5FHFinTOBcw==}
     peerDependencies:
       astro: ^1.6.0 || ^2.0.0
       vite-plugin-pwa: '>=0.16.3 <1'
     dependencies:
-      astro: 2.9.1(sass@1.64.1)
+      astro: 2.9.6(sass@1.64.1)
       vite-plugin-pwa: 0.16.4(vite@4.4.6)(workbox-build@7.0.0)(workbox-window@7.0.0)
     dev: false
 
@@ -3033,8 +3033,8 @@ packages:
     resolution: {integrity: sha512-bo5PiB4Y30PP9QS6OnYcVOr1fKDE52mvJys/3HgeiM2h+/hS7jESUHZMx6VX7yRid1yMGHsp2OyVTA9DrdPyPg==}
     dev: false
 
-  /astro@2.9.1(sass@1.64.1):
-    resolution: {integrity: sha512-cY+ilz7zbKx21QA4LRJtE49NakkhUVh6kU9LqNMThz/Fqv1Rkz0uJBWIUJfJqpOmqnpFEW2G245gF4+bUA7aRQ==}
+  /astro@2.9.6(sass@1.64.1):
+    resolution: {integrity: sha512-yvbZQ6YOWYLejyQ4nAcgZLDYQ34enQJ5/LWlXKtUzXzpsUHB75vJMj+XmEq5Q2eVlZOlQrp0lU+nhSRGaOsOUQ==}
     engines: {node: '>=16.12.0', npm: '>=6.14.0'}
     hasBin: true
     peerDependencies:
@@ -3043,10 +3043,10 @@ packages:
       sharp:
         optional: true
     dependencies:
-      '@astrojs/compiler': 1.6.1
+      '@astrojs/compiler': 1.6.3
       '@astrojs/internal-helpers': 0.1.1
       '@astrojs/language-server': 1.0.8
-      '@astrojs/markdown-remark': 2.2.1(astro@2.9.1)
+      '@astrojs/markdown-remark': 2.2.1(astro@2.9.6)
       '@astrojs/telemetry': 2.1.1
       '@astrojs/webapi': 2.2.0
       '@babel/core': 7.22.9
@@ -6099,7 +6099,7 @@ packages:
     resolution: {integrity: sha512-pYZXSbdq0eElvzoIMArzv1SBn1NUXzopjlcnt6Ql8VW32PjC12NovwBjXJ6rh8qQLi7vF8jNqAbraKW03UPfag==}
     engines: {node: ^14.15.0 || >=16.0.0, pnpm: '>=7.14.0'}
     dependencies:
-      '@astrojs/compiler': 1.6.1
+      '@astrojs/compiler': 1.6.3
       prettier: 2.8.8
       sass-formatter: 0.7.6
       synckit: 0.8.5
