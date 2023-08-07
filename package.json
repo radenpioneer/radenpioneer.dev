@@ -31,7 +31,7 @@
     "@vite-pwa/assets-generator": "^0.0.4",
     "@vite-pwa/astro": "^0.1.1",
     "astro": "^2.9.6",
-    "astro-compress": "^1.1.50",
+    "astro-compress": "^2.0.0",
     "astro-seo": "^0.7.5",
     "gsap": "^3.12.2",
     "marked": "^5.1.2",
