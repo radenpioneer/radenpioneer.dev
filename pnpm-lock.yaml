@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -6,40 +6,40 @@ settings:
 
 dependencies:
   '@astrojs/markdoc':
-    specifier: ^0.4.4
+    specifier: 0.4.4
     version: 0.4.4(@types/react@18.2.18)(astro@2.10.1)(react@18.2.0)
   '@astrojs/react':
-    specifier: ^2.2.1
+    specifier: 2.2.1
     version: 2.2.1(@types/react-dom@18.2.7)(@types/react@18.2.18)(react-dom@18.2.0)(react@18.2.0)
   '@astrojs/rss':
-    specifier: ^2.4.4
+    specifier: 2.4.4
     version: 2.4.4
   '@astrojs/sitemap':
-    specifier: ^2.0.1
+    specifier: 2.0.1
     version: 2.0.1
   '@fontsource-variable/plus-jakarta-sans':
-    specifier: ^5.0.6
+    specifier: 5.0.6
     version: 5.0.6
   '@fontsource/plus-jakarta-sans':
-    specifier: ^5.0.8
+    specifier: 5.0.8
     version: 5.0.8
   '@iconify/json':
-    specifier: ^2.2.95
+    specifier: 2.2.95
     version: 2.2.95
   '@nanostores/react':
-    specifier: ^0.7.1
+    specifier: 0.7.1
     version: 0.7.1(nanostores@0.9.3)(react@18.2.0)
   '@picocss/pico':
-    specifier: ^1.5.10
+    specifier: 1.5.10
     version: 1.5.10
   '@svgr/core':
-    specifier: ^8.0.0
+    specifier: 8.0.0
     version: 8.0.0
   '@svgr/plugin-jsx':
-    specifier: ^8.0.1
+    specifier: 8.0.1
     version: 8.0.1(@svgr/core@8.0.0)
   '@types/marked':
-    specifier: ^5.0.1
+    specifier: 5.0.1
     version: 5.0.1
   '@types/react':
     specifier: ^18.2.18
@@ -48,76 +48,76 @@ dependencies:
     specifier: ^18.2.7
     version: 18.2.7
   '@vite-pwa/assets-generator':
-    specifier: ^0.0.4
+    specifier: 0.0.4
     version: 0.0.4
   '@vite-pwa/astro':
-    specifier: ^0.1.1
+    specifier: 0.1.1
     version: 0.1.1(astro@2.10.1)(vite-plugin-pwa@0.16.4)
   astro:
-    specifier: ^2.10.1
+    specifier: 2.10.1
     version: 2.10.1(sass@1.64.2)
   astro-seo:
-    specifier: ^0.7.5
+    specifier: 0.7.5
     version: 0.7.5
   gsap:
-    specifier: ^3.12.2
+    specifier: 3.12.2
     version: 3.12.2
   marked:
-    specifier: ^5.1.2
+    specifier: 5.1.2
     version: 5.1.2
   marked-smartypants:
-    specifier: ^1.0.4
+    specifier: 1.0.4
     version: 1.0.4(marked@5.1.2)
   nanostores:
-    specifier: ^0.9.3
+    specifier: 0.9.3
     version: 0.9.3
   postcss-preset-env:
-    specifier: ^9.1.1
+    specifier: 9.1.1
     version: 9.1.1(postcss@8.4.27)
   react:
-    specifier: ^18.2.0
+    specifier: 18.2.0
     version: 18.2.0
   react-dom:
-    specifier: ^18.2.0
+    specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
   sass:
-    specifier: ^1.64.2
+    specifier: 1.64.2
     version: 1.64.2
   typescript:
-    specifier: ^5.1.6
+    specifier: 5.1.6
     version: 5.1.6
   unplugin-icons:
-    specifier: ^0.16.5
+    specifier: 0.16.5
     version: 0.16.5(@svgr/core@8.0.0)
   vite-plugin-pwa:
-    specifier: ^0.16.4
+    specifier: 0.16.4
     version: 0.16.4(vite@4.4.8)(workbox-build@7.0.0)(workbox-window@7.0.0)
   vite-plugin-svgr:
-    specifier: ^3.2.0
+    specifier: 3.2.0
     version: 3.2.0(rollup@2.79.1)(vite@4.4.8)
   workbox-cacheable-response:
-    specifier: ^7.0.0
+    specifier: 7.0.0
     version: 7.0.0
   workbox-core:
-    specifier: ^7.0.0
+    specifier: 7.0.0
     version: 7.0.0
   workbox-expiration:
-    specifier: ^7.0.0
+    specifier: 7.0.0
     version: 7.0.0
   workbox-precaching:
-    specifier: ^7.0.0
+    specifier: 7.0.0
     version: 7.0.0
   workbox-recipes:
-    specifier: ^7.0.0
+    specifier: 7.0.0
     version: 7.0.0
   workbox-routing:
-    specifier: ^7.0.0
+    specifier: 7.0.0
     version: 7.0.0
   workbox-strategies:
-    specifier: ^7.0.0
+    specifier: 7.0.0
     version: 7.0.0
   workbox-window:
-    specifier: ^7.0.0
+    specifier: 7.0.0
     version: 7.0.0
 
 packages:
@@ -596,6 +596,7 @@ packages:
   /@babel/plugin-proposal-unicode-property-regex@7.18.6(@babel/core@7.22.9):
     resolution: {integrity: sha512-2BShG/d5yoZyXZfVePH91urL5wTG6ASZU9M4o03lKK8u8UW1y08OMttBSOADTcJrnPMpvDXRG3G8fyLh4ovs8w==}
     engines: {node: '>=4'}
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-unicode-property-regex instead.
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
@@ -2762,6 +2763,7 @@ packages:
 
   /@types/linkify-it@3.0.2:
     resolution: {integrity: sha512-HZQYqbiFVWufzCwexrvh694SOim8z2d+xJl5UNamcvQFejLY/2YUtzXHYi3cHdI7PMlS8ejH2slRAOJQ32aNbA==}
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -2786,6 +2788,7 @@ packages:
 
   /@types/mdurl@1.0.2:
     resolution: {integrity: sha512-eC4U9MlIcu2q0KQmXszyn5Akca/0jrQmwDRgpAMJai7qBWq4amIQhZyNau4VYGtCeALvW1/NtjzJJ567aZxfKA==}
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -2842,7 +2845,7 @@ packages:
   /@types/sax@1.2.4:
     resolution: {integrity: sha512-pSAff4IAxJjfAXUG6tFkO7dsSbTmf8CtUpfhhZ5VhkRpC4628tJhh3+V6H1E+/Gs9piSzYKT5yzHO5M4GG9jkw==}
     dependencies:
-      '@types/node': 17.0.45
+      '@types/node': 20.4.5
     dev: false
 
   /@types/scheduler@0.16.3:
