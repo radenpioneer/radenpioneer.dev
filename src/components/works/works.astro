@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content'
+import { getImage } from 'astro:assets'
+import { Works as Component } from './works'
+// import { Debug } from 'astro:components'
+
+const worksCollection = await getCollection('works')
+const works = await Promise.all(
+  worksCollection.map(async (work) => ({
+    image: await getImage({
+      src: `/screenshot?url=${encodeURIComponent(work.data.url)}`,
+      width: 360,
+      height: 203,
+    }),
+    ...work.data,
+  }))
+)
+---
+
+<Component works={works} />
+<!-- <Debug {works} /> -->

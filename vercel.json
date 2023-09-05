@@ -1,0 +1,15 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/screenshot/:params*",
+      "destination": "https://sngr-screenshot.netlify.app/:params*"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/generate/:params*",
+      "destination": "/screenshot/generate/:params*"
+    }
+  ]
+}
