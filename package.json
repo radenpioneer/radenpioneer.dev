@@ -7,17 +7,24 @@
     "build": "pnpm check && astro build",
     "check": "astro sync && pnpm dlx concurrently \"npm:check:*\"",
     "check:lint": "pnpm dlx concurrently \"astro check\" \"tsc --noEmit\"",
-    "check:style": "pnpm exec prettier --plugin=prettier-plugin-astro --check .",
+    "check:style": "prettier --plugin=prettier-plugin-astro --check .",
     "dev": "astro dev",
-    "format": "pnpm exec prettier --plugin=prettier-plugin-astro --write .",
+    "format": "prettier --plugin=prettier-plugin-astro --write .",
     "preinstall": "npx only-allow pnpm",
     "preview": "astro preview",
     "start": "pnpm build && pnpm preview"
   },
   "dependencies": {
     "@astrojs/check": "^0.2.0",
+    "@astrojs/react": "^3.0.0",
+    "@fontsource-variable/manrope": "^5.0.8",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
     "astro": "^3.0.8",
     "astro-seo": "^0.8.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "sharp": "^0.32.5",
     "typescript": "^5.1.6"
   },
   "devDependencies": {

@@ -1,0 +1,14 @@
+---
+import type { GetImageResult } from 'astro'
+import { Header as Component } from './header'
+import { getEntry } from 'astro:content'
+
+const site = await getEntry('site', 'site')
+const { profileImageProps } = Astro.props as {
+  profileImageProps: GetImageResult
+}
+---
+
+<header>
+  <Component site={site} profileImage={profileImageProps} />
+</header>
