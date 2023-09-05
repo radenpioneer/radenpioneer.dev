@@ -1,4 +1,12 @@
+# generated
 .astro
+src/env.d.ts
+
+# built
 dist
+
+# lockfile
 pnpm-lock.yaml
+
+# vercel
 .vercel
