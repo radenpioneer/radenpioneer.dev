@@ -2,11 +2,17 @@
 import BaseLayout from './base.astro'
 import { SEO } from 'astro-seo'
 import { getEntry } from 'astro:content'
+import '~/styles/globals.scss'
 
 const { data: site } = await getEntry('site', 'site')
-const { title, description } = Astro.props as {
-  title?: string
-  description?: string
+const {
+  title,
+  description,
+  hide = false,
+} = Astro.props as {
+  title?: string | undefined
+  description?: string | undefined
+  hide?: boolean | undefined
 }
 ---
 
@@ -18,6 +24,8 @@ const { title, description } = Astro.props as {
         ? `${title} \u2014${site.title}`
         : `${site.title} \u2014 ${site.description}`}
       description={description || site.description}
+      noindex={hide}
+      nofollow={hide}
     />
     <slot name="head" />
   </Fragment>
