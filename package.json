@@ -7,14 +7,20 @@
     "build": "pnpm check && astro build",
     "check": "astro sync && pnpm dlx concurrently \"npm:check:*\"",
     "check:lint": "pnpm dlx concurrently \"astro check\" \"tsc --noEmit\"",
-    "check:style": "pnpm exec prettier --plugin-search-dir=. --check .",
-    "format": "pnpm exec prettier --plugin-search-dir=. --write .",
+    "check:style": "pnpm exec prettier --plugin=prettier-plugin-astro --check .",
+    "format": "pnpm exec prettier --plugin=prettier-plugin-astro --write .",
     "dev": "astro dev",
     "preview": "astro preview",
     "start": "astro dev"
   },
   "dependencies": {
-    "astro": "^2.10.1",
+    "@astrojs/check": "^0.2.0",
+    "astro": "^3.0.8",
+    "astro-seo": "^0.8.0",
     "typescript": "^5.1.6"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.2",
+    "prettier-plugin-astro": "^0.12.0"
   }
 }
