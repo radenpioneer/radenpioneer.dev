@@ -9,13 +9,20 @@ export const Works: FC<{ works: any[] }> = ({ works }) => {
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {works.map((work, i) => (
-          <div key={i}>
-            <img
-              src={work.image.src}
-              {...work.image.attributes}
-              className="aspect-[1280/720] object-cover shadow-md"
-              alt={work.title}
-            />
+          <div className="flex flex-col gap-2" key={i}>
+            <a href="#">
+              <img
+                src={work.image.src}
+                {...work.image.attributes}
+                className="aspect-[1280/720] object-cover shadow-md"
+                alt={work.title}
+              />
+            </a>
+            <div className="flex justify-between">
+              <a className="font-bold text-lg md:text-xl" href="#">
+                {work.title}
+              </a>
+            </div>
           </div>
         ))}
       </div>

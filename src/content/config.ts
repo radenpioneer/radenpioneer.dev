@@ -14,6 +14,7 @@ export const collections = {
       title: z.string(),
       description: z.string().optional(),
       url: z.string().url(),
+      finishedBy: z.date(),
     }),
   }),
 }
