@@ -1,0 +1,30 @@
+---
+title: "Musholla Madani: Creating a showcase for village-based socio-religious activity"
+publishDate: 2022-02-14
+description: "To facilitate their cause for helping Bukit Indah residents, a website was needed tho showcase what they have done."
+---
+
+Musholla Madani is a musholla located in Bukit Indah village, Lamandau, Kalimantan Tengah. In Indonesian Islamic culture, musholla usually means a smaller mosque to serve a smaller, local community that's out of reach from the nearest larger mosque.
+
+Established by Zailani BQ, Musholla Madani is the answer to the local religious education problem in Bukit Indah village: since mosques are managed poorly, the community around wasn't able to get the best from what mosques should offer by attending: religious services, community services, youth education and more. And since the village is located about half an hour from the nearest town center of Nanga Bulik, most of the basic and essential community needs are barely fulfilled by the local government, something that mosques and churches can fill the gap.
+
+Activities in Musholla Madani are divided into some "departments", which he and several volunteers from the community are running. Among the activities are Rumah Qur'an Nuri, which focused on religious education for youths, then Kajian Pemuda Keren - KPK, which focused on youth empowerment and prevention of juvenile delinquency, then Dapur Umum Madani, providing foods and beverages for activities held in the musholla, until the newly established TKIT Madani, providing kindergarten-level education for the community, which is rare in the village due to its remote location.
+
+## The Website
+
+The website requires to show every activity, categorized by every established department that holds it. The website is also becoming the hub for pieces of information to donors and linking them directly to the representative of the musholla.
+
+So the plan is to create a homepage that shows a glimpse of what the musholla is doing along with the latest news about their activity.
+
+The About page will be listing the departments and direct to the individual profile for each department. Along with it is the information of Yayasan Madani which acts as a legal umbrella for all activities in and around the musholla.
+
+### Routes
+Main routes are /about, /unit/[department], and news/[year]/[month]/[news-title]. Another route, /donasi, is redirected to the WhatsApp link of one responsible for donors and donations.
+
+### Stacks Used
+
+The Website is written in React, using Next.JS for the front end, and uses Netlify CMS for managing content. The Website uses no backend and therefore no API calls are made.
+
+For styling, it uses Sass and Tailwind CSS, because why not both? For processing it also uses postcss-font-magician, postcss-preset-env, and postcss-flexbugs-fixes.
+
+The project tree is as follows:

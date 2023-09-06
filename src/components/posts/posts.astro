@@ -1,0 +1,8 @@
+---
+import { getCollection } from 'astro:content'
+import { Posts as Component } from './posts'
+
+const posts = await getCollection('posts')
+---
+
+<Component posts={posts} />

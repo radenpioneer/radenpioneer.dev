@@ -10,11 +10,24 @@ export const collections = {
   }),
   works: defineCollection({
     type: 'content',
-    schema: z.object({
-      title: z.string(),
-      description: z.string().optional(),
-      url: z.string().url(),
-      finishedBy: z.date(),
-    }),
+    schema: ({ image }) =>
+      z.object({
+        title: z.string(),
+        description: z.string().optional(),
+        url: z.string().url(),
+        finishedBy: z.date(),
+        image: image().optional(),
+      }),
+  }),
+  posts: defineCollection({
+    type: 'content',
+    schema: ({ image }) =>
+      z.object({
+        title: z.string(),
+        description: z.string().optional(),
+        publishDate: z.date(),
+        modifiedBy: z.date().optional(),
+        image: image().optional(),
+      }),
   }),
 }

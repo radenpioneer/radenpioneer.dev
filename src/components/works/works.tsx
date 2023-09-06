@@ -3,7 +3,7 @@ import typestyle from '~/styles/fonts.module.scss'
 
 export const Works: FC<{ works: any[] }> = ({ works }) => {
   return (
-    <section className="flex flex-col gap-4">
+    <section className="flex flex-col gap-4 my-16">
       <h2 className={`${typestyle.__heading} font-bold text-xl md:text-2xl`}>
         Past Works
       </h2>
@@ -14,12 +14,15 @@ export const Works: FC<{ works: any[] }> = ({ works }) => {
               <img
                 src={work.image.src}
                 {...work.image.attributes}
-                className="aspect-[1280/720] object-cover shadow-md"
+                className="aspect-[1280/720] object-cover rounded shadow-md"
                 alt={work.title}
               />
             </a>
             <div className="flex justify-between">
-              <a className="font-bold text-lg md:text-xl" href="#">
+              <a
+                className={`${typestyle.__heading} font-bold text-lg md:text-xl`}
+                href="#"
+              >
                 {work.title}
               </a>
             </div>
