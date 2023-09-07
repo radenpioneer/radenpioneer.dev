@@ -1,26 +1,28 @@
 ---
 import BaseLayout from './base.astro'
-import Header from '~/components/header'
 import { SEO } from 'astro-seo'
+import Header from '~/components/header/header.astro'
 import { getEntry } from 'astro:content'
 import { getImage } from 'astro:assets'
-// @ts-ignore
-import { pwaInfo } from 'virtual:pwa-info'
+import profile from '~/assets/profile.jpg'
+import '@fontsource-variable/manrope'
+import '~/styles/globals.scss'
 
-import '@fontsource/plus-jakarta-sans/400.css'
-import '@fontsource/plus-jakarta-sans/700.css'
-import '@fontsource/plus-jakarta-sans/800.css'
-import '~/styles/nohemi.scss'
-import '~/styles/base.scss'
-
-export interface Props {
+const { data: site } = await getEntry('site', 'site')
+const profileImageProps = await getImage({
+  src: profile,
+  width: 100,
+  height: 100,
+})
+const {
+  title,
+  description,
+  hide = false,
+} = Astro.props as {
   title?: string | undefined
   description?: string | undefined
+  hide?: boolean | undefined
 }
-
-const site = await getEntry('site', 'site')
-const image = await getImage({ src: site.data.image, width: 80, height: 80 })
-const { title, description } = Astro.props
 ---
 
 <BaseLayout>
@@ -28,23 +30,29 @@ const { title, description } = Astro.props
   <Fragment slot="head">
     <SEO
       title={title
-        ? `${title} \u2014 ${site.data.title}`
-        : `${site.data.title} \u2014 ${site.data.subtitle}`}
-      description={description || site.data.description}
+        ? `${title} \u2014 ${site.title}`
+        : `${site.title} \u2014 ${site.description}`}
+      description={description || site.description}
+      noindex={hide}
+      nofollow={hide}
+      extend={{
+        link: [
+          {
+            rel: 'preload',
+            href: profileImageProps.src,
+            as: 'image',
+          },
+        ],
+      }}
     />
-    <link rel="preload" as="image" href={image.src} />
-    {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
     <slot name="head" />
   </Fragment>
 
-  <!-- Main Body -->
+  <!-- Body -->
   <Fragment>
-    <Header image={image} site={site} />
-    <main>
+    <Header profileImageProps={profileImageProps} />
+    <main class="md:max-w-screen-md md:mx-auto px-4 pb-24">
       <slot />
     </main>
   </Fragment>
-  <script>
-    import '~/components/scripts/pwa'
-  </script>
 </BaseLayout>

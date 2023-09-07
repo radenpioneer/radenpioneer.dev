@@ -1,3 +1,3 @@
-FROM gitpod/workspace-node-lts
+FROM gitpod/workspace-full
 
-RUN npm i -g pnpm@latest vercel@latest
+RUN npm i -g vercel@latest

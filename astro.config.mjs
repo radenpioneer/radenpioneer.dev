@@ -1,50 +1,13 @@
 import { defineConfig } from 'astro/config'
-
-// Astro Integrations
 import react from '@astrojs/react'
 import markdoc from '@astrojs/markdoc'
-import sitemap from '@astrojs/sitemap'
-import pwa from '@vite-pwa/astro'
-
-// Vite Plugins
-import Icons from 'unplugin-icons/vite'
-import svgr from 'vite-plugin-svgr'
-
-// manifest.json
-import manifest from './src/components/scripts/manifest.json' assert { type: 'json' }
+import vercel from '@astrojs/vercel/serverless'
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://dev.radenpioneer.blog',
-  compressHTML: true,
-  integrations: [
-    react(),
-    markdoc(),
-    sitemap(),
-    pwa({
-      registerType: 'autoUpdate',
-      strategies: 'injectManifest',
-      srcDir: 'src/components/scripts',
-      filename: 'sw.ts',
-      manifest,
-    }),
-  ],
-  redirects: {
-    '/work': '/soon',
-    '/blog': '/blog/1',
-    '/contact': '/soon',
-  },
-  vite: {
-    plugins: [svgr(), Icons({ compiler: 'jsx', jsx: 'react' })],
-    css: {
-      preprocessorOptions: {
-        scss: {
-          includePaths: ['node_modules'],
-        },
-      },
-    },
-  },
-  experimental: {
-    assets: true,
-  },
+  compressHTML: process.env.NODE_ENV === 'production',
+  integrations: [react(), markdoc()],
+  output: 'hybrid',
+  adapter: vercel(),
 })
