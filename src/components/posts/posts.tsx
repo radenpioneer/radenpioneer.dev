@@ -20,7 +20,7 @@ export const Posts: FC<{ posts: CollectionEntry<'posts'>[] }> = ({ posts }) => {
               post.data.publishDate.getMonth() + 1,
               post.slug,
             ].join('/')
-            
+
           return (
             <article className="flex flex-col gap-4" key={i}>
               <h2
