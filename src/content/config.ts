@@ -25,8 +25,8 @@ export const collections = {
       z.object({
         title: z.string(),
         description: z.string().optional(),
-        publishDate: z.date(),
-        modifiedBy: z.date().optional(),
+        publishDate: z.string(),
+        modifiedBy: z.string().optional(),
         image: image().optional(),
       }),
   }),

@@ -1,10 +1,14 @@
 ---
-title: "Musholla Madani: Creating a showcase for village-based socio-religious activity"
-publishDate: 2022-02-14
-description: "To facilitate their cause for helping Bukit Indah residents, a website was needed tho showcase what they have done."
-image: ~/assets/posts/musholla-madani-creating-a-showcase-for-village-based-socio-religious-activity/image.jpeg
+title: >-
+  Musholla Madani: Creating a showcase for village-based socio-religious
+  activity
+description: >-
+  To facilitate their cause for helping Bukit Indah residents, a website was
+  needed tho showcase what they have done.
+publishDate: '2022-02-14'
+image: >-
+  ~/assets/posts/musholla-madani-creating-a-showcase-for-village-based-socio-religious-activity/image.jpeg
 ---
-
 Musholla Madani is a musholla located in Bukit Indah village, Lamandau, Kalimantan Tengah. In Indonesian Islamic culture, musholla usually means a smaller mosque to serve a smaller, local community that's out of reach from the nearest larger mosque.
 
 Established by Zailani BQ, Musholla Madani is the answer to the local religious education problem in Bukit Indah village: since mosques are managed poorly, the community around wasn't able to get the best from what mosques should offer by attending: religious services, community services, youth education and more. And since the village is located about half an hour from the nearest town center of Nanga Bulik, most of the basic and essential community needs are barely fulfilled by the local government, something that mosques and churches can fill the gap.
@@ -20,6 +24,7 @@ So the plan is to create a homepage that shows a glimpse of what the musholla is
 The About page will be listing the departments and direct to the individual profile for each department. Along with it is the information of Yayasan Madani which acts as a legal umbrella for all activities in and around the musholla.
 
 ### Routes
+
 Main routes are `/about`, `/unit/[department]`, and `news/[year]/[month]/[news-title]`. Another route, `/donasi`, is redirected to the WhatsApp link of one responsible for donors and donations.
 
 ### Stacks Used
@@ -113,9 +118,11 @@ export default AdminPage
 while the configuration file (`admin-config.yml`) is provided in public folder.
 
 ### Deployment
+
 The Website is deployed using Netlify, taking advantage of the Essential Next.JS Plugin, which is installed by default on every Next.JS deployed on Netlify.
 
 ## Conclusion
+
 This article is written to document what it takes to build an informational, news hub website for a non-profit organization. Hopefully, this website is gonna help them to reach more donors and spread the word about their activities in Bukit Indah village, so the community will benefit more.
 
 Visit the website at [mushollamadani.com](https://suraumadani.com)
