@@ -27,7 +27,14 @@ export const collections = {
         description: z.string().optional(),
         publishDate: z.string(),
         modifiedBy: z.string().optional(),
+        tags: z.array(
+          z.object({
+            name: z.string(),
+            slug: z.string(),
+          })
+        ),
         image: image().optional(),
+        draft: z.boolean().optional().default(false),
       }),
   }),
 }

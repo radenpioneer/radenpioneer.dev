@@ -10,17 +10,25 @@ export default config({
       label: 'Posts',
       slugField: 'title',
       path: 'src/content/posts/*',
+      entryLayout: 'content',
       format: { contentField: 'content' },
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
         description: fields.text({ label: 'Description' }),
         publishDate: fields.date({
           label: 'Publish Date',
+          defaultValue: { kind: 'today' },
           validation: { isRequired: true },
         }),
         modifiedBy: fields.date({
           label: 'Modified By Date',
+          defaultValue: { kind: 'today' },
           validation: { isRequired: false },
+        }),
+        draft: fields.checkbox({ label: 'Draft', defaultValue: true }),
+        tags: fields.array(fields.slug({ name: { label: 'Tag' } }), {
+          label: 'Tags',
+          itemLabel: ({ value }) => value.name,
         }),
         image: fields.image({
           label: 'Image',
