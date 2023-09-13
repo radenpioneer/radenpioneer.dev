@@ -5,12 +5,12 @@ import { getImage } from 'astro:assets'
 import typestyle from '~/styles/fonts.module.scss'
 
 export const getStaticPaths = async () => {
-  const posts = await getCollection('posts')
+  const posts = await getCollection('posts', ({ data }) => !data.draft)
   return posts.map((post) => ({
     params: {
       slug: [
-        post.data.publishDate.getFullYear(),
-        post.data.publishDate.getMonth() + 1,
+        new Date(post.data.publishDate).getFullYear(),
+        new Date(post.data.publishDate).getMonth() + 1,
         post.slug,
       ].join('/'),
     },
@@ -47,9 +47,9 @@ const image = post.data.image
         )
       }
       <div class="flex gap-1 text-sm">
-        <time datetime={post.data.publishDate.toISOString()}>
+        <time datetime={new Date(post.data.publishDate).toISOString()}>
           {
-            post.data.publishDate.toLocaleDateString('id', {
+            new Date(post.data.publishDate).toLocaleDateString('id', {
               dateStyle: 'long',
             })
           }

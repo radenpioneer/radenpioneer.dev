@@ -9,15 +9,17 @@ export const Posts: FC<{ posts: CollectionEntry<'posts'>[] }> = ({ posts }) => {
     <section className="flex flex-col gap-8 my-16">
       {posts
         .sort(
-          (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime()
+          (a, b) =>
+            new Date(b.data.publishDate).getTime() -
+            new Date(a.data.publishDate).getTime()
         )
         .slice(0, 8)
         .map((post, i) => {
           const path =
             '/posts/' +
             [
-              post.data.publishDate.getFullYear(),
-              post.data.publishDate.getMonth() + 1,
+              new Date(post.data.publishDate).getFullYear(),
+              new Date(post.data.publishDate).getMonth() + 1,
               post.slug,
             ].join('/')
 
