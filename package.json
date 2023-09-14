@@ -18,6 +18,7 @@
     "@astrojs/check": "^0.2.0",
     "@astrojs/markdoc": "^0.5.0",
     "@astrojs/react": "^3.0.2",
+    "@astrojs/sitemap": "^3.0.0",
     "@astrojs/vercel": "^4.0.5",
     "@fontsource-variable/urbanist": "^5.0.13",
     "@keystatic/astro": "^1.0.2",
