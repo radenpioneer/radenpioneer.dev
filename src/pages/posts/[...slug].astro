@@ -5,7 +5,9 @@ import { getImage } from 'astro:assets'
 import typestyle from '~/styles/fonts.module.scss'
 
 export const getStaticPaths = async () => {
-  const posts = await getCollection('posts', ({ data }) => !data.draft)
+  const posts = await getCollection('posts', ({ data }) =>
+    import.meta.env.MODE === 'production' ? !data.draft : true
+  )
   return posts.map((post) => ({
     params: {
       slug: [
@@ -28,11 +30,16 @@ const image = post.data.image
 <Layout
   title={post.data.title}
   description={post.data.description || undefined}
+  hide={post.data.hidden}
 >
+  <!-- Additional Head -->
   <Fragment slot="head">
     {image && <link href={image.src} rel="preload" as="image" />}
   </Fragment>
+
+  <!-- Main Article -->
   <article class="prose font-serif text-justify max-w-none">
+    <!-- Heading Section -->
     <hgroup class="not-prose flex flex-col gap-4 font-sans mb-16">
       <h1
         class={`${typestyle.__heading} text-2xl md:text-4xl font-black text-left`}
@@ -56,6 +63,8 @@ const image = post.data.image
         </time>
       </div>
     </hgroup>
+
+    <!-- Optional Image Section -->
     {
       image && (
         <p>
@@ -69,6 +78,8 @@ const image = post.data.image
         </p>
       )
     }
+
+    <!-- Rendered Content -->
     <Content />
   </article>
 </Layout>

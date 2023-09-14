@@ -35,6 +35,7 @@ export const collections = {
         ),
         image: image().optional(),
         draft: z.boolean().optional().default(false),
+        hidden: z.boolean().optional().default(false),
       }),
   }),
 }

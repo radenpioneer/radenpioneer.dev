@@ -25,6 +25,7 @@ export default config({
           defaultValue: { kind: 'today' },
           validation: { isRequired: false },
         }),
+        hidden: fields.checkbox({ label: 'Hidden', defaultValue: false }),
         draft: fields.checkbox({ label: 'Draft', defaultValue: true }),
         tags: fields.array(fields.slug({ name: { label: 'Tag' } }), {
           label: 'Tags',
