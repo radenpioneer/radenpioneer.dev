@@ -20,7 +20,7 @@
     "@astrojs/partytown": "2.0.0",
     "@astrojs/react": "3.0.2",
     "@astrojs/sitemap": "3.0.0",
-    "@astrojs/vercel": "4.0.5",
+    "@astrojs/vercel": "5.0.1",
     "@fontsource-variable/urbanist": "5.0.13",
     "@keystatic/astro": "1.0.2",
     "@keystatic/core": "0.1.4",
