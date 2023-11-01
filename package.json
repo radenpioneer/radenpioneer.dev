@@ -29,7 +29,7 @@
     "@types/react-dom": "18.2.14",
     "astro": "3.4.0",
     "astro-seo": "0.8.0",
-    "html-react-parser": "4.2.10",
+    "html-react-parser": "5.0.3",
     "marked": "9.1.4",
     "postcss": "8.4.31",
     "postcss-preset-env": "9.3.0",
