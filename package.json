@@ -30,7 +30,7 @@
     "astro": "3.4.3",
     "astro-seo": "0.8.0",
     "html-react-parser": "5.0.6",
-    "marked": "9.1.5",
+    "marked": "10.0.0",
     "postcss": "8.4.31",
     "postcss-preset-env": "9.3.0",
     "prettier": "3.0.3",
