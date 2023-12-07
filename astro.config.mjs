@@ -11,7 +11,9 @@ export default defineConfig({
   compressHTML: process.env.NODE_ENV === 'production',
   integrations: [react(), markdoc(), sitemap(), partytown()],
   output: 'hybrid',
-  adapter: vercel(),
+  adapter: vercel({
+    imageService: true,
+  }),
   image: {
     domains: ['cdn.hashnode.com'],
   },
