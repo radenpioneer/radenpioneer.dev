@@ -1,7 +1,7 @@
+import type { Publication } from './schema'
 import { gql } from 'graphql-request'
-import { getClient } from './client'
+import { getClient, HOSTNAME } from './client'
 
-const HOSTNAME = new URL(import.meta.env.SITE).hostname
 const client = getClient()
 
 export const getPostBySlug = async (slug: string) =>
@@ -12,6 +12,7 @@ export const getPostBySlug = async (slug: string) =>
           post(slug: $slug) {
             title
             subtitle
+            publishedAt
             coverImage {
               url
             }
@@ -27,3 +28,29 @@ export const getPostBySlug = async (slug: string) =>
       slug,
     }
   )
+
+export const getPosts = async () =>
+  client.request(
+    gql`
+      query Posts($host: String!) {
+        publication(host: $host) {
+          posts(first: 12) {
+            edges {
+              node {
+                title
+                subtitle
+                slug
+                brief
+              }
+            }
+          }
+        }
+      }
+    `,
+    {
+      host: HOSTNAME,
+    }
+  )
+
+export type PostBySlug = { publication: Pick<Publication, 'post'> }
+export type Posts = { publication: Pick<Publication, 'posts'> }

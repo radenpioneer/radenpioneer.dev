@@ -44,15 +44,15 @@ const processedCoverImage = coverImage
           <p class="text-xl md:text-2xl italic text-left">{subtitle}</p>
         )
       }
-      <!-- <div class="flex gap-1 text-sm">
-        <time datetime={new Date(publishDate).toISOString()}>
+      <div class="flex gap-1 text-sm">
+        <time datetime={new Date(publishedAt).toISOString()}>
           {
-            new Date(publishDate).toLocaleDateString('id', {
+            new Date(publishedAt).toLocaleDateString('id', {
               dateStyle: 'long',
             })
           }
         </time>
-      </div> -->
+      </div>
     </hgroup>
 
     <!-- Optional Image Section -->

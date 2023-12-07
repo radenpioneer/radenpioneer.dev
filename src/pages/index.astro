@@ -1,10 +1,15 @@
 ---
 import Layout from '~/layouts/layout.astro'
-import Posts from '~/components/posts/posts.astro'
+import { PostsList } from '~/components/posts/posts'
 import Works from '~/components/works/works.astro'
+import { getPosts, type Posts } from '~/data/post'
+
+const posts = (await getPosts()) as Posts
+
+export const prerender = false
 ---
 
 <Layout>
-  <Posts />
+  <PostsList posts={posts} />
   <Works />
 </Layout>
