@@ -1,0 +1,76 @@
+---
+import Layout from '~/layouts/layout.astro'
+import type { Post } from '~/data/schema'
+import { getImage } from 'astro:assets'
+import typestyle from '~/styles/fonts.module.scss'
+
+interface Props {
+  post: Post
+}
+
+const {
+  post: { title, subtitle, coverImage, publishedAt },
+} = Astro.props
+const processedCoverImage = coverImage
+  ? await getImage({
+      src: coverImage.url,
+      width: 800,
+      height: 600,
+    })
+  : undefined
+---
+
+<Layout title={title} description={subtitle || undefined} hide={!!publishedAt}>
+  <!-- Additional Head -->
+  <Fragment slot="head">
+    {
+      processedCoverImage && (
+        <link href={processedCoverImage.src} rel="preload" as="image" />
+      )
+    }
+  </Fragment>
+
+  <!-- Main Article -->
+  <article class="prose text-justify max-w-none">
+    <!-- Heading Section -->
+    <hgroup class="not-prose flex flex-col gap-4 font-sans mb-16">
+      <h1
+        class={`${typestyle.__heading} text-2xl md:text-4xl font-black text-left`}
+      >
+        {title}
+      </h1>
+      {
+        subtitle && (
+          <p class="text-xl md:text-2xl italic text-left">{subtitle}</p>
+        )
+      }
+      <!-- <div class="flex gap-1 text-sm">
+        <time datetime={new Date(publishDate).toISOString()}>
+          {
+            new Date(publishDate).toLocaleDateString('id', {
+              dateStyle: 'long',
+            })
+          }
+        </time>
+      </div> -->
+    </hgroup>
+
+    <!-- Optional Image Section -->
+    {
+      processedCoverImage && (
+        <p>
+          <img
+            src={processedCoverImage?.src}
+            class="aspect-[4/3] object-cover"
+            loading="eager"
+            alt={title}
+            {...processedCoverImage?.attributes}
+          />
+        </p>
+      )
+    }
+
+    <!-- Rendered Content -->
+    <slot />
+  </article>
+</Layout>
