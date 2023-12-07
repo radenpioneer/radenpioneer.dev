@@ -12,4 +12,7 @@ export default defineConfig({
   integrations: [react(), markdoc(), sitemap(), partytown()],
   output: 'hybrid',
   adapter: vercel(),
+  image: {
+    domains: ['cdn.hashnode.com'],
+  },
 })
