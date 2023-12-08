@@ -1,19 +1,19 @@
 ---
 import Layout from '~/layouts/layout.astro'
-import type { Post } from '~/data/schema'
 import { Picture } from 'astro:assets'
 import typestyle from '~/styles/fonts.module.scss'
 
 interface Props {
-  post: Post
+  title: string
+  subtitle?: string | null | undefined
+  coverImage?: string | undefined
+  publishedAt?: any
 }
 
-const {
-  post: { title, subtitle, coverImage, publishedAt },
-} = Astro.props
+const { title, subtitle, coverImage, publishedAt } = Astro.props
 ---
 
-<Layout title={title} description={subtitle || undefined} hide={!!publishedAt}>
+<Layout title={title} description={subtitle || undefined}>
   <!-- Main Article -->
   <article class="prose text-justify max-w-none">
     <!-- Heading Section -->
@@ -28,15 +28,17 @@ const {
           <p class="text-xl md:text-2xl italic text-left">{subtitle}</p>
         )
       }
-      <div class="flex gap-1 text-sm">
-        <time datetime={new Date(publishedAt).toISOString()}>
-          {
-            new Date(publishedAt).toLocaleDateString('id', {
-              dateStyle: 'long',
-            })
-          }
-        </time>
-      </div>
+      {
+        publishedAt && (
+          <div class="flex gap-1 text-sm">
+            <time datetime={new Date(publishedAt).toISOString()}>
+              {new Date(publishedAt).toLocaleDateString('id', {
+                dateStyle: 'long',
+              })}
+            </time>
+          </div>
+        )
+      }
     </hgroup>
 
     <!-- Optional Image Section -->
@@ -44,7 +46,7 @@ const {
       coverImage && (
         <p>
           <Picture
-            src={coverImage.url}
+            src={coverImage}
             formats={['avif', 'webp']}
             width={800}
             height={600}

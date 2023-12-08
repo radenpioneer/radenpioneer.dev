@@ -1,5 +1,5 @@
 ---
-import PageLayout from '~/layouts/page.astro'
+import PostLayout from '~/layouts/post.astro'
 import type { Publication } from '~/data/schema'
 import { getPostBySlug } from '~/data/post'
 
@@ -15,6 +15,6 @@ if (!post) {
 export const prerender = false
 ---
 
-<PageLayout post={post}>
+<PostLayout post={post}>
   <Fragment set:html={post.content.html} />
-</PageLayout>
+</PostLayout>

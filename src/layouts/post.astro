@@ -1,0 +1,16 @@
+---
+import PageLayout from './page.astro'
+import type { Post } from '~/data/schema'
+
+interface Props {
+  post: Pick<Post, 'title' | 'subtitle' | 'coverImage' | 'publishedAt'>
+}
+
+const {
+  post: { coverImage, ...post },
+} = Astro.props
+---
+
+<PageLayout coverImage={coverImage?.url} {...post}>
+  <slot />
+</PageLayout>
