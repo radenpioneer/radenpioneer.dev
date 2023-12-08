@@ -1,0 +1,20 @@
+---
+import PostLayout from '~/layouts/post.astro'
+import type { Publication } from '~/data/schema'
+import { getPostBySlug } from '~/data/post'
+
+const { slug } = Astro.params
+
+const {
+  publication: { post },
+} = (await getPostBySlug(slug!)) as { publication: Publication }
+if (!post) {
+  return Astro.redirect('/404')
+}
+
+export const prerender = false
+---
+
+<PostLayout post={post}>
+  <Fragment set:html={post.content.html} />
+</PostLayout>

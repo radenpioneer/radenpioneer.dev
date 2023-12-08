@@ -1,0 +1,63 @@
+---
+import Layout from '~/layouts/layout.astro'
+import { Picture } from 'astro:assets'
+import typestyle from '~/styles/fonts.module.scss'
+
+interface Props {
+  title: string
+  subtitle?: string | null | undefined
+  coverImage?: string | undefined
+  publishedAt?: any
+}
+
+const { title, subtitle, coverImage, publishedAt } = Astro.props
+---
+
+<Layout title={title} description={subtitle || undefined}>
+  <!-- Main Article -->
+  <article class="prose text-justify max-w-none">
+    <!-- Heading Section -->
+    <hgroup class="not-prose flex flex-col gap-4 font-sans mb-16">
+      <h1
+        class={`${typestyle.__heading} text-2xl md:text-4xl font-black text-left`}
+      >
+        {title}
+      </h1>
+      {
+        subtitle && (
+          <p class="text-xl md:text-2xl italic text-left">{subtitle}</p>
+        )
+      }
+      {
+        publishedAt && (
+          <div class="flex gap-1 text-sm">
+            <time datetime={new Date(publishedAt).toISOString()}>
+              {new Date(publishedAt).toLocaleDateString('id', {
+                dateStyle: 'long',
+              })}
+            </time>
+          </div>
+        )
+      }
+    </hgroup>
+
+    <!-- Optional Image Section -->
+    {
+      coverImage && (
+        <p>
+          <Picture
+            src={coverImage}
+            formats={['avif', 'webp']}
+            width={800}
+            height={600}
+            loading="eager"
+            alt={title}
+          />
+        </p>
+      )
+    }
+
+    <!-- Rendered Content -->
+    <slot />
+  </article>
+</Layout>

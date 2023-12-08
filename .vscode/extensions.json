@@ -1,7 +1,8 @@
 {
   "recommendations": [
     "astro-build.astro-vscode",
-    "github.vscode-github-actions"
+    "github.vscode-github-actions",
+    "graphql.vscode-graphql-syntax"
   ],
   "unwantedRecommendations": []
 }

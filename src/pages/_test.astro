@@ -1,0 +1,10 @@
+---
+import { Debug } from 'astro:components'
+import { getPostBySlug } from '~/data/post'
+
+const post = await getPostBySlug(
+  'musholla-madani-creating-a-showcase-for-village-based-socio-religious-activity'
+)
+---
+
+<Debug {post} />

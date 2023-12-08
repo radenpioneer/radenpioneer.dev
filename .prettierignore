@@ -1,6 +1,7 @@
 # generated
 .astro
 src/env.d.ts
+src/data/schema.ts
 
 # built
 dist
