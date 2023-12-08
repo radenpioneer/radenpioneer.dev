@@ -1,7 +1,7 @@
 ---
 import Layout from '~/layouts/layout.astro'
 import type { Post } from '~/data/schema'
-import { getImage } from 'astro:assets'
+import { Picture } from 'astro:assets'
 import typestyle from '~/styles/fonts.module.scss'
 
 interface Props {
@@ -11,25 +11,9 @@ interface Props {
 const {
   post: { title, subtitle, coverImage, publishedAt },
 } = Astro.props
-const processedCoverImage = coverImage
-  ? await getImage({
-      src: coverImage.url,
-      width: 800,
-      height: 600,
-    })
-  : undefined
 ---
 
 <Layout title={title} description={subtitle || undefined} hide={!!publishedAt}>
-  <!-- Additional Head -->
-  <Fragment slot="head">
-    {
-      processedCoverImage && (
-        <link href={processedCoverImage.src} rel="preload" as="image" />
-      )
-    }
-  </Fragment>
-
   <!-- Main Article -->
   <article class="prose text-justify max-w-none">
     <!-- Heading Section -->
@@ -57,14 +41,15 @@ const processedCoverImage = coverImage
 
     <!-- Optional Image Section -->
     {
-      processedCoverImage && (
+      coverImage && (
         <p>
-          <img
-            src={processedCoverImage?.src}
-            class="aspect-[4/3] object-cover"
+          <Picture
+            src={coverImage.url}
+            formats={['avif', 'webp']}
+            width={800}
+            height={600}
             loading="eager"
             alt={title}
-            {...processedCoverImage?.attributes}
           />
         </p>
       )

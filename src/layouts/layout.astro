@@ -3,16 +3,12 @@ import BaseLayout from './base.astro'
 import { SEO } from 'astro-seo'
 import { Header } from '~/components/header/header'
 import { type SiteSettings, getSiteSettings } from '~/data/site'
-import { getImage } from 'astro:assets'
+import { Picture } from 'astro:assets'
 import '@fontsource-variable/urbanist'
 import '~/styles/globals.scss'
 
 const { publication: site } = (await getSiteSettings()) as SiteSettings
-const profileImageProps = await getImage({
-  src: site.favicon!,
-  width: 100,
-  height: 100,
-})
+
 const {
   title,
   description,
@@ -34,27 +30,23 @@ const {
       description={description || site.about!.text!}
       noindex={hide}
       nofollow={hide}
-      extend={{
-        link: [
-          {
-            rel: 'preload',
-            href: profileImageProps.src,
-            as: 'image',
-          },
-        ],
-      }}
     />
-    <script
-      async
-      src="https://sngr-analytics.netlify.app/script.js"
-      data-website-id="ebdd858f-2a9d-415b-a46d-8a87162122e0"
-      type="text/partytown"></script>
     <slot name="head" />
   </Fragment>
 
   <!-- Body -->
   <Fragment>
-    <Header site={site} profileImage={profileImageProps} />
+    <Header site={site}>
+      <Picture
+        src={site.favicon!}
+        class="w-[50px] h-[50px] object-cover rounded-full shadow-md"
+        formats={['avif', 'webp']}
+        width={50}
+        height={50}
+        loading="eager"
+        alt=""
+      />
+    </Header>
     <main class="md:max-w-screen-md md:mx-auto px-4 pb-24">
       <slot />
     </main>
