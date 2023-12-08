@@ -1,9 +1,14 @@
 ---
-import { getCollection } from 'astro:content'
+import type { CollectionEntry } from 'astro:content'
+import { WorksList } from './works'
 import { getImage } from 'astro:assets'
-import { Works as Component } from './works'
 
-const worksCollection = await getCollection('works')
+interface Props {
+  works: Array<CollectionEntry<'works'>>
+}
+
+const { works: worksCollection } = Astro.props
+
 const works = await Promise.all(
   worksCollection
     .sort((a, b) => b.data.finishedBy.getTime() - a.data.finishedBy.getTime())
@@ -14,9 +19,12 @@ const works = await Promise.all(
         width: 360,
         height: 203,
       }),
+      slug: work.slug,
       ...work.data,
     }))
 )
+
+export type Works = typeof works
 ---
 
-<Component works={works} />
+<WorksList works={works} />

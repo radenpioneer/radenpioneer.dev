@@ -17,6 +17,11 @@ const { entry } = Astro.props
 const { Content } = await entry.render()
 ---
 
-<PageLayout title={entry.data.title} subtitle={entry.data.description}>
+<PageLayout
+  title={entry.data.title}
+  subtitle={entry.data.description}
+  ,
+  coverImage={`/screenshot?url=${encodeURIComponent(entry.data.url)}`}
+>
   <Content />
 </PageLayout>

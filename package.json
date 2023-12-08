@@ -8,17 +8,16 @@
     "check": "astro sync && pnpm dlx concurrently \"npm:check:*\"",
     "check:lint": "pnpm dlx concurrently \"astro check\" \"tsc --noEmit\"",
     "check:style": "prettier --plugin=prettier-plugin-astro --check .",
+    "codegen": "graphql-codegen --config codegen.ts",
     "dev": "astro dev",
     "format": "prettier --plugin=prettier-plugin-astro --write .",
     "preinstall": "npx only-allow pnpm",
     "preview": "astro preview",
-    "start": "pnpm build && pnpm preview",
-    "codegen": "graphql-codegen --config codegen.ts"
+    "start": "pnpm build && pnpm preview"
   },
   "dependencies": {
     "@astrojs/check": "0.3.1",
     "@astrojs/markdoc": "0.7.2",
-    "@astrojs/partytown": "2.0.2",
     "@astrojs/react": "3.0.6",
     "@astrojs/sitemap": "3.0.3",
     "@astrojs/vercel": "5.2.0",
@@ -30,8 +29,6 @@
     "astro-seo": "0.8.0",
     "graphql": "^16.8.1",
     "graphql-request": "^6.1.0",
-    "html-react-parser": "5.0.6",
-    "marked": "9.1.6",
     "postcss": "8.4.32",
     "postcss-preset-env": "9.3.0",
     "prettier": "3.1.0",
