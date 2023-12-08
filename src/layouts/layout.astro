@@ -1,6 +1,7 @@
 ---
 import BaseLayout from './base.astro'
 import { SEO } from 'astro-seo'
+import SpeedInsight from '~/components/speedInsight.astro'
 import { Header } from '~/components/header/header'
 import { type SiteSettings, getSiteSettings } from '~/data/site'
 import { Picture } from 'astro:assets'
@@ -50,5 +51,6 @@ const {
     <main class="md:max-w-screen-md md:mx-auto px-4 pb-24">
       <slot />
     </main>
+    <SpeedInsight />
   </Fragment>
 </BaseLayout>
