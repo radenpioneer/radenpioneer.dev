@@ -12,9 +12,6 @@ export default defineConfig({
   output: 'hybrid',
   adapter: vercel({
     imageService: true,
-    // imagesConfig: {
-    //   sizes: [35, 50, 80, 120, 160, 320, 480, 640, 1280],
-    // },
   }),
   image: {
     domains: ['cdn.hashnode.com'],
