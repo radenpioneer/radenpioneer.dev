@@ -1,0 +1,5 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/universal:2-linux",
+  "postCreateCommand": "npm i -g vercel",
+  "postStartCommand": "pnpm install --frozen-lockfile"
+}
